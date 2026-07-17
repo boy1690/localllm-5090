@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0",
+  "as_of": "2026-07-17",
+  "routes": [
+    {
+      "id": "strict-json-materialization",
+      "work": "strict_json_materialization",
+      "model_ids": ["qwen3_6-35b-a3b-q4_k_m"],
+      "mode": "non_thinking_8k",
+      "required_gates": ["json_parse", "schema_validation", "forbidden_term_check"],
+      "status": "preferred"
+    },
+    {
+      "id": "general-typescript-build",
+      "work": "typescript_and_general_build",
+      "model_ids": ["devstral-small-2-24b-q4_k_m"],
+      "mode": "direct_worker",
+      "required_gates": ["type_check", "targeted_tests"],
+      "status": "preferred"
+    },
+    {
+      "id": "high-risk-rust",
+      "work": "high_risk_rust_and_invariants",
+      "model_ids": ["qwen3_6-35b-a3b-q4_k_m", "qwen3-4b", "qwen2_5-coder-7b"],
+      "mode": "thinking_32k_adaptive_repair",
+      "required_gates": ["cargo_diagnostics", "bounded_findings", "minimal_synthesis", "cargo_test_rerun"],
+      "status": "preferred_with_mandatory_repair_loop"
+    },
+    {
+      "id": "bounded-checker",
+      "work": "bounded_checker",
+      "model_ids": ["qwen3-4b"],
+      "mode": "fixed_fields_only",
+      "required_gates": ["exact_expected_rows"],
+      "status": "preferred"
+    },
+    {
+      "id": "code-specific-escalation",
+      "work": "code_specific_checker_escalation",
+      "model_ids": ["qwen2_5-coder-7b"],
+      "mode": "narrow_authority",
+      "required_gates": ["compiler_or_test_confirmation"],
+      "status": "preferred_for_ambiguous_code_rows"
+    },
+    {
+      "id": "required-tool-call",
+      "work": "required_tool_call",
+      "model_ids": ["agents-a1-4b-q4_k_m"],
+      "mode": "exact_contract",
+      "required_gates": ["tool_name", "tool_count", "arguments"],
+      "status": "preferred"
+    },
+    {
+      "id": "batch-overnight",
+      "work": "batch_or_overnight",
+      "model_ids": ["gpt-oss-120b"],
+      "mode": "25_percent_gpu_75_percent_ram",
+      "required_gates": ["sufficient_output_budget", "task_contract"],
+      "status": "conditional"
+    }
+  ],
+  "prohibitions": [
+    {
+      "id": "no-devstral-q6-promotion",
+      "model_ids": ["devstral-small-2-24b-q6_k"],
+      "rule": "Do not use as Rust worker, repair, judge, or replacement for the Q4 general worker.",
+      "evidence_result_ids": ["native-devstral24-q6-8k", "devstral-q6-fixed-contract"]
+    },
+    {
+      "id": "no-deepseek32-8k",
+      "model_ids": ["deepseek-r1-distill-qwen-32b-q4_k_m"],
+      "rule": "Do not admit context 8192 on the reference system under the 2 GiB headroom policy.",
+      "evidence_result_ids": ["deepseek32-8k-capacity"]
+    },
+    {
+      "id": "no-fixed-voting-authority",
+      "model_ids": [],
+      "rule": "Do not use seat count, repeated slots, or model majority vote as a correctness gate.",
+      "evidence_topology_ids": ["five-large-plus-checker", "fixed-qwen35-to-qwencoder-repair"]
+    },
+    {
+      "id": "no-four-large-resident-default",
+      "model_ids": [],
+      "rule": "Do not keep four or more models resident on the reference 24GB GPU.",
+      "evidence_topology_ids": ["resident-four-model-capacity"]
+    },
+    {
+      "id": "no-model-self-verification",
+      "model_ids": [],
+      "rule": "A model claim that code compiles or tests pass is not evidence without an external gate.",
+      "evidence_result_ids": ["devstral-q6-fixed-contract"]
+    },
+    {
+      "id": "no-cross-lane-speed-average",
+      "model_ids": [],
+      "rule": "Do not average native llama.cpp throughput with LM Studio end-to-end structured timing.",
+      "evidence_result_ids": []
+    }
+  ]
+}

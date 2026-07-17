@@ -1,0 +1,268 @@
+{
+  "schema_version": "1.0",
+  "results": [
+    {
+      "id": "native-agents-a1-4b-8k",
+      "suite_id": "native-llama-cpp-2026-07-16",
+      "system_id": "rtx5090-laptop-24gb-ref",
+      "model_id": "agents-a1-4b-q4_k_m",
+      "observed_date": "2026-07-16",
+      "context_tokens": 8192,
+      "status": "measured",
+      "metrics": { "pp512_tokens_per_second": 7534, "tg128_tokens_per_second": 172.4, "vram_after_gib": 4.45, "shared_mib": 100 },
+      "decision": "tool_leaf_only"
+    },
+    {
+      "id": "native-ornith-9b-8k",
+      "suite_id": "native-llama-cpp-2026-07-16",
+      "system_id": "rtx5090-laptop-24gb-ref",
+      "model_id": "ornith-1_0-9b-q4_k_m",
+      "observed_date": "2026-07-16",
+      "context_tokens": 8192,
+      "status": "measured",
+      "metrics": { "pp512_tokens_per_second": 4633, "tg128_tokens_per_second": 106.2, "vram_after_gib": 6.54, "shared_mib": 106 },
+      "decision": "proposal_leaf_only"
+    },
+    {
+      "id": "native-gemma-agentic-12b-8k",
+      "suite_id": "native-llama-cpp-2026-07-16",
+      "system_id": "rtx5090-laptop-24gb-ref",
+      "model_id": "gemma-4-12b-agentic-v2-q4_k_m",
+      "observed_date": "2026-07-16",
+      "context_tokens": 8192,
+      "status": "measured",
+      "metrics": { "pp512_tokens_per_second": 3718, "tg128_tokens_per_second": 69.7, "vram_after_gib": 9.99, "shared_mib": 108 },
+      "decision": "test_idea_leaf_only"
+    },
+    {
+      "id": "native-devstral24-q4-8k",
+      "suite_id": "native-llama-cpp-2026-07-16",
+      "system_id": "rtx5090-laptop-24gb-ref",
+      "model_id": "devstral-small-2-24b-q4_k_m",
+      "observed_date": "2026-07-16",
+      "context_tokens": 8192,
+      "status": "measured",
+      "metrics": { "pp512_tokens_per_second": 1938, "tg128_tokens_per_second": 42.9, "vram_after_gib": 15.76, "shared_mib": 108 },
+      "decision": "general_worker"
+    },
+    {
+      "id": "native-devstral24-q6-8k",
+      "suite_id": "native-llama-cpp-2026-07-16",
+      "system_id": "rtx5090-laptop-24gb-ref",
+      "model_id": "devstral-small-2-24b-q6_k",
+      "observed_date": "2026-07-16",
+      "context_tokens": 8192,
+      "status": "capacity_pass_quality_not_promoted",
+      "metrics": { "pp512_tokens_per_second": 1419.15, "tg128_tokens_per_second": 31.7, "vram_loaded_mib": 21399, "vram_after_cases_mib": 21404, "shared_loaded_bytes": 113246208, "shared_after_bytes": 113246208 },
+      "decision": "capacity_pass_quality_no_uplift"
+    },
+    {
+      "id": "native-qwen35-a3b-8k",
+      "suite_id": "native-llama-cpp-2026-07-16",
+      "system_id": "rtx5090-laptop-24gb-ref",
+      "model_id": "qwen3_6-35b-a3b-q4_k_m",
+      "observed_date": "2026-07-16",
+      "context_tokens": 8192,
+      "status": "measured",
+      "metrics": { "pp512_tokens_per_second": 3603, "tg128_tokens_per_second": 170.2, "vram_after_gib": 21.37, "shared_mib": 98 },
+      "decision": "long_reasoning_worker_judge_with_gates"
+    },
+    {
+      "id": "native-north-mini-code-8k",
+      "suite_id": "native-llama-cpp-2026-07-16",
+      "system_id": "rtx5090-laptop-24gb-ref",
+      "model_id": "north-mini-code-1_0-q4_k_m",
+      "observed_date": "2026-07-16",
+      "context_tokens": 8192,
+      "status": "measured_with_variance",
+      "metrics": { "pp512_tokens_per_second": 3232, "tg128_tokens_per_second": 186.7, "vram_after_gib": 19.92, "shared_mib": 106 },
+      "decision": "typescript_second_opinion"
+    },
+    {
+      "id": "native-gemma26-a4b-8k",
+      "suite_id": "native-llama-cpp-2026-07-16",
+      "system_id": "rtx5090-laptop-24gb-ref",
+      "model_id": "gemma-4-26b-a4b-q4_k_m",
+      "observed_date": "2026-07-16",
+      "context_tokens": 8192,
+      "status": "historical_speed_mixed_lane",
+      "metrics": { "pp512_tokens_per_second": null, "tg128_tokens_per_second": 125, "vram_after_gib": 18.79, "shared_mib": 104 },
+      "decision": "content_typescript_repair_proposal",
+      "notes": "The ~125 tg/s value is historical and not a current native-lane measurement."
+    },
+    {
+      "id": "devstral-q6-fixed-contract",
+      "suite_id": "fixed-coding-contract-2026-07-16",
+      "system_id": "rtx5090-laptop-24gb-ref",
+      "model_id": "devstral-small-2-24b-q6_k",
+      "observed_date": "2026-07-16",
+      "context_tokens": 16384,
+      "status": "fail",
+      "metrics": {
+        "json_contract": "fail_markdown_fence",
+        "typescript_gate": "pass",
+        "rust_gate": "fail_6_errors_1_warning",
+        "repair_gate": "fail_no_op_false_verification",
+        "tool_call_gate": "pass",
+        "vram_loaded_mib": 22689,
+        "vram_after_cases_mib": 22704,
+        "shared_loaded_bytes": 121634816
+      },
+      "decision": "do_not_use_for_rust_repair_or_judge"
+    },
+    {
+      "id": "deepseek8-8k-e2e",
+      "suite_id": "deepseek-e2e-2026-07-10",
+      "system_id": "rtx5090-laptop-24gb-ref",
+      "model_id": "deepseek-r1-0528-qwen3-8b-q4_k_m",
+      "observed_date": "2026-07-10",
+      "context_tokens": 8192,
+      "status": "capacity_pass_carrier_risk",
+      "metrics": { "median_tokens_per_second": 106.8, "vram_delta_gib": 5.78, "vram_free_mib": null, "shared_growth_mib": 105 },
+      "decision": "on_demand_reasoning_counterexample"
+    },
+    {
+      "id": "deepseek32-4k-e2e",
+      "suite_id": "deepseek-e2e-2026-07-10",
+      "system_id": "rtx5090-laptop-24gb-ref",
+      "model_id": "deepseek-r1-distill-qwen-32b-q4_k_m",
+      "observed_date": "2026-07-10",
+      "context_tokens": 4096,
+      "status": "capacity_pass_route_limited",
+      "metrics": { "median_tokens_per_second": 29.0, "vram_delta_gib": 19.46, "vram_free_mib": 2804, "shared_growth_mib": 44 },
+      "decision": "sequential_edge_review_only"
+    },
+    {
+      "id": "deepseek32-8k-capacity",
+      "suite_id": "deepseek-e2e-2026-07-10",
+      "system_id": "rtx5090-laptop-24gb-ref",
+      "model_id": "deepseek-r1-distill-qwen-32b-q4_k_m",
+      "observed_date": "2026-07-10",
+      "context_tokens": 8192,
+      "status": "rejected_below_headroom",
+      "metrics": { "median_tokens_per_second": null, "vram_delta_gib": 20.53, "vram_loaded_mib": 21020, "vram_free_mib": 1777, "shared_growth_mib": 104 },
+      "decision": "not_admitted"
+    },
+    {
+      "id": "checker-qwen-coder7-p10",
+      "suite_id": "small-checker-2026-07-11",
+      "system_id": "rtx5090-laptop-24gb-ref",
+      "model_id": "qwen2_5-coder-7b",
+      "observed_date": "2026-07-11",
+      "context_tokens": null,
+      "status": "measured",
+      "metrics": { "p5_exact": 8, "p10_exact": 8, "case_count": 10, "p10_wall_seconds": 1.078, "p10_aggregate_tokens_per_second": 282.10, "p10_gpu_used_mib": 6433, "json_parse": 10 },
+      "decision": "code_specific_escalation"
+    },
+    {
+      "id": "checker-qwen3-4b-p10",
+      "suite_id": "small-checker-2026-07-11",
+      "system_id": "rtx5090-laptop-24gb-ref",
+      "model_id": "qwen3-4b",
+      "observed_date": "2026-07-11",
+      "context_tokens": null,
+      "status": "measured",
+      "metrics": { "p5_exact": 7, "p10_exact": 7, "case_count": 10, "p10_wall_seconds": 0.610, "p10_aggregate_tokens_per_second": 321.32, "p10_gpu_used_mib": 4706, "json_parse": 10 },
+      "decision": "default_bounded_checker"
+    },
+    {
+      "id": "checker-phi4-mini-p10",
+      "suite_id": "small-checker-2026-07-11",
+      "system_id": "rtx5090-laptop-24gb-ref",
+      "model_id": "phi-4-mini",
+      "observed_date": "2026-07-11",
+      "context_tokens": null,
+      "status": "not_admitted_for_contract",
+      "metrics": { "p5_exact": 3, "p10_exact": 3, "case_count": 10, "p10_wall_seconds": 1.156, "p10_aggregate_tokens_per_second": 242.31, "p10_gpu_used_mib": 4644, "json_parse": 10 },
+      "decision": "not_admitted_for_this_contract"
+    },
+    {
+      "id": "long-qwen35-32k",
+      "suite_id": "long-context-coding-2026-07-16",
+      "system_id": "rtx5090-laptop-24gb-ref",
+      "model_id": "qwen3_6-35b-a3b-q4_k_m",
+      "observed_date": "2026-07-16",
+      "context_tokens": 32768,
+      "status": "core_pass_tests_fail",
+      "metrics": { "vram_after_gib": 22.60, "shared_mib": 122, "completion_tokens": 10610, "final_status": "present", "external_gate": "production_core_correct_tests_compile_fail" },
+      "decision": "use_with_adaptive_cargo_repair"
+    },
+    {
+      "id": "long-north-mini-32k",
+      "suite_id": "long-context-coding-2026-07-16",
+      "system_id": "rtx5090-laptop-24gb-ref",
+      "model_id": "north-mini-code-1_0-q4_k_m",
+      "observed_date": "2026-07-16",
+      "context_tokens": 32768,
+      "status": "timeout_no_final",
+      "metrics": { "vram_after_gib": 21.73, "shared_mib": 138, "time_limit_seconds": 300, "final_status": "missing", "external_gate": "not_run" },
+      "decision": "not_admitted_for_long_context_rust"
+    },
+    {
+      "id": "long-deepseek8-16k",
+      "suite_id": "long-context-coding-2026-07-16",
+      "system_id": "rtx5090-laptop-24gb-ref",
+      "model_id": "deepseek-r1-0528-qwen3-8b-q4_k_m",
+      "observed_date": "2026-07-16",
+      "context_tokens": 16384,
+      "status": "reasoning_only_no_final",
+      "metrics": { "vram_after_gib": 8.34, "shared_mib": 114, "final_status": "missing", "external_gate": "not_run" },
+      "decision": "not_admitted_for_this_long_output_route"
+    },
+    {
+      "id": "long-deepseek8-32k",
+      "suite_id": "long-context-coding-2026-07-16",
+      "system_id": "rtx5090-laptop-24gb-ref",
+      "model_id": "deepseek-r1-0528-qwen3-8b-q4_k_m",
+      "observed_date": "2026-07-16",
+      "context_tokens": 32768,
+      "status": "reasoning_only_no_final",
+      "metrics": { "vram_after_gib": 10.62, "shared_mib": 130, "final_status": "missing", "external_gate": "not_run" },
+      "decision": "not_admitted_for_this_long_output_route"
+    },
+    {
+      "id": "long-olmo7-16k",
+      "suite_id": "long-context-coding-2026-07-16",
+      "system_id": "rtx5090-laptop-24gb-ref",
+      "model_id": "olmo-3-7b-q4_k_s",
+      "observed_date": "2026-07-16",
+      "context_tokens": 16384,
+      "status": "final_present_quality_fail",
+      "metrics": { "vram_after_gib": 13.48, "shared_mib": 128, "final_status": "present", "external_gate": "fabricated_api_fail" },
+      "decision": "not_admitted_for_api_generation"
+    },
+    {
+      "id": "compat-gemma31-qat",
+      "suite_id": "compatibility-followup-2026-07-17",
+      "system_id": "rtx5090-laptop-24gb-ref",
+      "model_id": "gemma-4-31b-qat-q4_0",
+      "observed_date": "2026-07-17",
+      "context_tokens": null,
+      "status": "runtime_compatibility_block",
+      "metrics": { "download_status": "complete", "load_status": "tokenizer_assert_in_two_builds", "quality_status": "not_run" },
+      "decision": "do_not_label_quality_failure"
+    },
+    {
+      "id": "compat-gemma26-qat-partial",
+      "suite_id": "compatibility-followup-2026-07-17",
+      "system_id": "rtx5090-laptop-24gb-ref",
+      "model_id": "gemma-4-26b-a4b-qat-q4_0",
+      "observed_date": "2026-07-17",
+      "context_tokens": null,
+      "status": "partial_asset",
+      "metrics": { "download_status": "partial", "load_status": "not_run", "quality_status": "not_run" },
+      "decision": "await_integrity_before_testing"
+    },
+    {
+      "id": "compat-laguna-xs",
+      "suite_id": "compatibility-followup-2026-07-17",
+      "system_id": "rtx5090-laptop-24gb-ref",
+      "model_id": "laguna-xs-2_1",
+      "observed_date": "2026-07-10",
+      "context_tokens": null,
+      "status": "runtime_compatibility_block",
+      "metrics": { "download_status": "available_locally", "load_status": "unknown_model_architecture", "quality_status": "not_run" },
+      "decision": "await_runtime_support"
+    }
+  ]
+}

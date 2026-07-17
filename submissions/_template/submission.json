@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "submission_id": "2026-01-01--example-run",
+  "completed_date": "2026-01-01",
+  "submitter_slug": "example-contributor",
+  "system": {
+    "os": "Windows 11",
+    "gpu_name": "Example GPU",
+    "gpu_count": 1,
+    "dedicated_vram_mib": 24576,
+    "ram_mib": 65536
+  },
+  "runtime": {
+    "name": "example-runtime",
+    "version": "1.0",
+    "backend": "CUDA"
+  },
+  "model": {
+    "display_name": "Example Model",
+    "upstream_id": "example/model",
+    "filename": "example-model-q4.gguf",
+    "quantization": "Q4_K_M",
+    "file_size_bytes": 1
+  },
+  "suite_id": "native-llama-cpp-2026-07-16",
+  "evaluation": {
+    "context_tokens": 8192,
+    "max_output_tokens": 1024,
+    "seed": 42,
+    "gpu_offload": "all supported layers",
+    "flash_attention": true
+  },
+  "results": [
+    {
+      "metric": "tg128_tokens_per_second",
+      "value": 0,
+      "unit": "tokens_per_second",
+      "status": "measured",
+      "gate": "runtime-reported native timing",
+      "notes": "Replace this example with a real measurement."
+    }
+  ],
+  "limitations": [
+    "Replace this example with conditions that limit comparison."
+  ],
+  "license_accepted": true
+}

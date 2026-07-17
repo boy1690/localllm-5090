@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "systems": [
+    {
+      "id": "rtx5090-laptop-24gb-ref",
+      "observation_start": "2026-07-04",
+      "observation_end": "2026-07-17",
+      "os": "Windows 11",
+      "gpu": {
+        "name": "NVIDIA GeForce RTX 5090 Laptop GPU",
+        "count": 1,
+        "dedicated_vram_mib_min": 24462,
+        "dedicated_vram_mib_max": 24463
+      },
+      "ram_gib_class": 128,
+      "runtime_lanes": [
+        {
+          "id": "llama-cpp-b9946-cuda12.4",
+          "runtime": "llama.cpp",
+          "build": "b9946",
+          "backend": "CUDA 12.4",
+          "gpu_offload": "ngl=99",
+          "flash_attention": true
+        },
+        {
+          "id": "lm-studio-2026-07",
+          "runtime": "LM Studio",
+          "build": "multiple observed builds",
+          "backend": "bundled llama.cpp",
+          "gpu_offload": "gpu=max unless noted",
+          "flash_attention": null
+        }
+      ],
+      "operating_policy": {
+        "gpu_owner": "single primary inference owner",
+        "minimum_dedicated_headroom_mib": 2048,
+        "maximum_new_process_shared_growth_mib": 512
+      },
+      "redaction": "Brand/model details not needed for comparison, account data, host identifiers, exact OS build and absolute paths were intentionally omitted."
+    }
+  ]
+}

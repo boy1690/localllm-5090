@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "suites": [
+    {
+      "id": "native-llama-cpp-2026-07-16",
+      "runtime_lane": "llama-cpp-b9946-cuda12.4",
+      "purpose": "Native prompt-processing, generation and 8K capacity comparison.",
+      "metrics": ["pp512_tokens_per_second", "tg128_tokens_per_second", "vram_after_gib", "shared_mib"],
+      "objective_gate": "Model loads with a final answer path and no meaningful shared-memory spill.",
+      "comparability": "Compare only rows in this suite with the recorded context and runtime lane."
+    },
+    {
+      "id": "fixed-coding-contract-2026-07-16",
+      "runtime_lane": "llama-cpp-b9946-cuda12.4",
+      "purpose": "Raw JSON, TypeScript strict, Rust async/backoff, adversarial repair and required tool-call admission.",
+      "metrics": ["json_contract", "typescript_gate", "rust_gate", "repair_gate", "tool_call_gate"],
+      "objective_gate": "Parser/compiler/tests/tool contract outrank model self-verification.",
+      "comparability": "Raw private prompts are not published; compare only against the same fixed packet revision."
+    },
+    {
+      "id": "deepseek-e2e-2026-07-10",
+      "runtime_lane": "lm-studio-2026-07",
+      "purpose": "DeepSeek 8B/32B speed, capacity and reasoning-carrier evaluation.",
+      "metrics": ["median_tokens_per_second", "vram_delta_gib", "vram_free_mib", "shared_growth_mib"],
+      "objective_gate": "At least 2,048 MiB dedicated headroom and a usable final answer carrier.",
+      "comparability": "End-to-end timing; do not average with native llama.cpp metrics."
+    },
+    {
+      "id": "small-checker-2026-07-11",
+      "runtime_lane": "lm-studio-2026-07",
+      "purpose": "Ten exact bounded coding checks with parallel=5 and parallel=10.",
+      "metrics": ["p5_exact", "p10_exact", "p10_wall_seconds", "p10_aggregate_tokens_per_second", "p10_gpu_used_mib"],
+      "objective_gate": "Exact expected findings; JSON parse alone is insufficient.",
+      "comparability": "P10 is request concurrency for one loaded model, not ten independent votes."
+    },
+    {
+      "id": "long-context-coding-2026-07-16",
+      "runtime_lane": "llama-cpp-b9946-cuda12.4",
+      "purpose": "Long-context fit, time-to-final and coding correctness.",
+      "metrics": ["context_tokens", "vram_after_gib", "shared_mib", "time_limit_seconds", "final_status", "external_gate"],
+      "objective_gate": "A final must arrive within the limit and pass compiler/test gates.",
+      "comparability": "Fit without a valid final is not an admission pass."
+    },
+    {
+      "id": "pipeline-real-task-2026-07-07",
+      "runtime_lane": "lm-studio-2026-07",
+      "purpose": "Five bounded office/RAG/engineering tasks.",
+      "metrics": ["score", "score_max", "wall_seconds", "loaded_vram_gib"],
+      "objective_gate": "Per-task rubric plus explicit conflict/citation handling.",
+      "comparability": "Historical task suite; scores are not interchangeable with coding-contract scores."
+    },
+    {
+      "id": "topology-2026-07-07-to-16",
+      "runtime_lane": "mixed_recorded_lanes",
+      "purpose": "Resident/sequential multi-model composition and adaptive repair behavior.",
+      "metrics": ["wall_seconds", "mechanical_score", "headroom_mib", "external_test_result"],
+      "objective_gate": "Capacity, schema and semantic/execution gates are separate.",
+      "comparability": "Each topology records its own runtime and task context; use for pattern evidence, not a single leaderboard."
+    },
+    {
+      "id": "compatibility-followup-2026-07-17",
+      "runtime_lane": "multiple_llama_cpp_builds",
+      "purpose": "Asset completion and runtime-load compatibility follow-up.",
+      "metrics": ["download_status", "load_status", "quality_status"],
+      "objective_gate": "Quality testing starts only after complete asset integrity and successful load.",
+      "comparability": "A compatibility block is not a quality failure."
+    }
+  ]
+}

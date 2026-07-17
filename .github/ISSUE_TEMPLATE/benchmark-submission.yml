@@ -1,0 +1,33 @@
+name: Benchmark submission proposal
+description: Propose a public-safe measurement or a new versioned suite.
+title: "[submission]: "
+labels: ["submission"]
+body:
+  - type: markdown
+    attributes:
+      value: Do not paste credentials, private paths/account identifiers, raw logs, or model files.
+  - type: input
+    id: model
+    attributes:
+      label: Model and quantization
+    validations:
+      required: true
+  - type: input
+    id: runtime
+    attributes:
+      label: Runtime and version
+    validations:
+      required: true
+  - type: textarea
+    id: method
+    attributes:
+      label: Measurement and objective gate
+    validations:
+      required: true
+  - type: checkboxes
+    id: rights
+    attributes:
+      label: Confirmation
+      options:
+        - label: I will submit only public-safe material I have the right to publish.
+          required: true

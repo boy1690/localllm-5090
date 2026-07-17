@@ -1,0 +1,720 @@
+﻿{
+    "schema_version":  "1.0",
+    "source_tree_commit":  "06ed00e",
+    "files":  [
+                  {
+                      "path":  ".gitattributes",
+                      "bytes":  210,
+                      "sha256":  "b83f2491ee5ccb274d4da14d68d04534d1dc4a6d7e43b34ee9293c271d985796",
+                      "disposition":  "recreated_public_scaffolding"
+                  },
+                  {
+                      "path":  ".github/ISSUE_TEMPLATE/benchmark_submission.yml",
+                      "bytes":  1500,
+                      "sha256":  "31444626e6cd52ee74d0f1ca768d2e788f326d7bc9e1dad6021028d7a3ba3f3d",
+                      "disposition":  "recreated_public_scaffolding"
+                  },
+                  {
+                      "path":  ".github/ISSUE_TEMPLATE/bug_report.yml",
+                      "bytes":  1111,
+                      "sha256":  "b18e25c543514cdc036a2c2da5d7839bb13875363822ee7f3a074a728e2bdfa8",
+                      "disposition":  "recreated_public_scaffolding"
+                  },
+                  {
+                      "path":  ".github/ISSUE_TEMPLATE/config.yml",
+                      "bytes":  199,
+                      "sha256":  "b1b300aa3408c0c3ee36b3fa9f6f8cb23b52653a16dc12c0b83879aa70c8be83",
+                      "disposition":  "recreated_public_scaffolding"
+                  },
+                  {
+                      "path":  ".github/PULL_REQUEST_TEMPLATE.md",
+                      "bytes":  1073,
+                      "sha256":  "83c37c0de0175385294370673a65ef86d80556882b699e596133f41c4a57e59b",
+                      "disposition":  "recreated_public_scaffolding"
+                  },
+                  {
+                      "path":  ".github/workflows/validate.yml",
+                      "bytes":  390,
+                      "sha256":  "8ff22b6ea3b043fc66d25041c6f15b0772b7dce896be058fad83c487230eef31",
+                      "disposition":  "recreated_public_scaffolding"
+                  },
+                  {
+                      "path":  ".gitignore",
+                      "bytes":  433,
+                      "sha256":  "de3dde1b4c53cad054d0a6dbed4314463c920ad3b42ef35ee4e0f10e2c3291f0",
+                      "disposition":  "recreated_public_scaffolding"
+                  },
+                  {
+                      "path":  "benchmarks/cases/agents-a1-official-cases.json",
+                      "bytes":  3881,
+                      "sha256":  "914a698c6ae3a4a98c87b1a8b2cc972c68057dde738668ee0b938d1d021fe18a",
+                      "disposition":  "distilled_to_benchmark_catalog"
+                  },
+                  {
+                      "path":  "benchmarks/cases/arc-import-case.json",
+                      "bytes":  531,
+                      "sha256":  "18fc852241a1a6ccdac258018ff05efb220e9281eda31ebe28ddaa8526006d52",
+                      "disposition":  "distilled_to_benchmark_catalog"
+                  },
+                  {
+                      "path":  "benchmarks/cases/leaf-async-case.json",
+                      "bytes":  789,
+                      "sha256":  "81f4021339fc064f826331e14e472cba6425beb7719c460c67a1d82caaec6be0",
+                      "disposition":  "distilled_to_benchmark_catalog"
+                  },
+                  {
+                      "path":  "benchmarks/cases/leaf-compile-case.json",
+                      "bytes":  701,
+                      "sha256":  "49e74ee0a6ba49a5eda005fcd8861813dfeec83c2fbd895bc1b5c7f6b45ef57e",
+                      "disposition":  "distilled_to_benchmark_catalog"
+                  },
+                  {
+                      "path":  "benchmarks/cases/leaf-direct-repair-case.json",
+                      "bytes":  866,
+                      "sha256":  "e02e39652b8966b33781daa10ae6b77face28818a3b76956a30346fbf63472a7",
+                      "disposition":  "distilled_to_benchmark_catalog"
+                  },
+                  {
+                      "path":  "benchmarks/cases/leaf-judge-case.json",
+                      "bytes":  1053,
+                      "sha256":  "84af3b3ddcaa61defd4b731f5feeefcaa853969c549671ed494b8be05c5c4009",
+                      "disposition":  "distilled_to_benchmark_catalog"
+                  },
+                  {
+                      "path":  "benchmarks/cases/leaf-tests-case.json",
+                      "bytes":  825,
+                      "sha256":  "617ebc9bfe03bcc3d8f62158bb018f77e2d8cd5c5ce81bdd4e3a3a0acc01ecd9",
+                      "disposition":  "distilled_to_benchmark_catalog"
+                  },
+                  {
+                      "path":  "benchmarks/cases/leaf-tests-module-case.json",
+                      "bytes":  1128,
+                      "sha256":  "833054a54a7bf461ed7d2d6b046378689958f3ca81bdeffdc5094d6013b2216b",
+                      "disposition":  "distilled_to_benchmark_catalog"
+                  },
+                  {
+                      "path":  "benchmarks/cases/model-eval-cases.json",
+                      "bytes":  3588,
+                      "sha256":  "5e5d2a02782fd419cb48c28aa28a3495bb0d37af3e4c84bfd9f704e10b33874c",
+                      "disposition":  "distilled_to_benchmark_catalog"
+                  },
+                  {
+                      "path":  "benchmarks/cases/one-line-import-case.json",
+                      "bytes":  609,
+                      "sha256":  "2c16fd178f489aa8f6e9d5ae0cd4957b220c216d47d5a2495ad4a51a0da3dd14",
+                      "disposition":  "distilled_to_benchmark_catalog"
+                  },
+                  {
+                      "path":  "benchmarks/cases/overflow-boundary-case.json",
+                      "bytes":  548,
+                      "sha256":  "ce9b4e703dabed391c94be034984123e2ed18d2125307b687d031cde4effcb0f",
+                      "disposition":  "distilled_to_benchmark_catalog"
+                  },
+                  {
+                      "path":  "benchmarks/cases/qwen-no-thinking-cases.json",
+                      "bytes":  2757,
+                      "sha256":  "cd5d0d18840ae9807812635eedc8b7b0b0490f75a701d3381e7827e6cbdd0f39",
+                      "disposition":  "distilled_to_benchmark_catalog"
+                  },
+                  {
+                      "path":  "benchmarks/cases/README.md",
+                      "bytes":  568,
+                      "sha256":  "efdc6e75db6761a8d563a696f629cd9553671b0d2dbabdcb1206448dced555b0",
+                      "disposition":  "distilled_to_benchmark_catalog"
+                  },
+                  {
+                      "path":  "benchmarks/cases/rust-long-thinking-case.json",
+                      "bytes":  1117,
+                      "sha256":  "b816cf65d757981d6b1a3515f4e40694db663d8370a6cf184d7aefb079769333",
+                      "disposition":  "distilled_to_benchmark_catalog"
+                  },
+                  {
+                      "path":  "benchmarks/README.md",
+                      "bytes":  646,
+                      "sha256":  "ce804a62cd259dafe0099c1a8892cddb4ba91d2fe956165ef0624772507d3788",
+                      "disposition":  "recreated_public_scaffolding"
+                  },
+                  {
+                      "path":  "benchmarks/topology/configs/resident-deepseek8-qwen4-phi4mini.json",
+                      "bytes":  2581,
+                      "sha256":  "c94feec51798300346f579cff3bbb9e5b67ab13f58b68849c87c83e093ccbf4a",
+                      "disposition":  "distilled_to_benchmark_catalog"
+                  },
+                  {
+                      "path":  "benchmarks/topology/configs/resident-ministral14-deepseek8-qwen4.json",
+                      "bytes":  2400,
+                      "sha256":  "73fd563a6327e5c3da3165ae078bc922554d960ded7c1fcbc7cea24a113cab58",
+                      "disposition":  "distilled_to_benchmark_catalog"
+                  },
+                  {
+                      "path":  "benchmarks/topology/configs/resident-r2-gptoss20-ministral14-edge.json",
+                      "bytes":  1362,
+                      "sha256":  "3fea5da687f2bbb1f697f762fecfd2423b37cf4aefe6d9e7c416cd0866ae4175",
+                      "disposition":  "distilled_to_benchmark_catalog"
+                  },
+                  {
+                      "path":  "benchmarks/topology/configs/resident-r2-gptoss20-qwen4.json",
+                      "bytes":  1610,
+                      "sha256":  "5312e0fe19c42ed16227352611549313227b13e8ea1e91bb8f8a29badd904988",
+                      "disposition":  "distilled_to_benchmark_catalog"
+                  },
+                  {
+                      "path":  "benchmarks/topology/configs/resident-r3-gptoss20-qwen4-phi4mini.json",
+                      "bytes":  2613,
+                      "sha256":  "760aacd3de1f4b448059f900e72d6939c1725cdb76961ce40cab3c5a88afde04",
+                      "disposition":  "distilled_to_benchmark_catalog"
+                  },
+                  {
+                      "path":  "benchmarks/topology/configs/resident-r4-gptoss20-qwen4-phi4mini-mistral7-capacity.json",
+                      "bytes":  1381,
+                      "sha256":  "03b203753889ef47215d2d1f60877950ce3600a4075fbe57a994a48611fcf58c",
+                      "disposition":  "distilled_to_benchmark_catalog"
+                  },
+                  {
+                      "path":  "benchmarks/topology/configs/sequential-deepseek32-ctx4096-fresh.json",
+                      "bytes":  849,
+                      "sha256":  "3d6221715ef2146ebe960ee2972422563e2d32d5cdf022877b898dea8a0f56ca",
+                      "disposition":  "distilled_to_benchmark_catalog"
+                  },
+                  {
+                      "path":  "benchmarks/topology/configs/sequential-fast-2large-plus-checker.json",
+                      "bytes":  2042,
+                      "sha256":  "addbc403b4e337d565383393eed31cb0f4f253f08a5c40e1610a51684bcbf954",
+                      "disposition":  "distilled_to_benchmark_catalog"
+                  },
+                  {
+                      "path":  "benchmarks/topology/configs/sequential-gemma26-deepseek32-qwen4.json",
+                      "bytes":  2205,
+                      "sha256":  "1e1e0aad037b4f536e32d5e76981a47336c233da23b9a3c962a214328be4d3e2",
+                      "disposition":  "distilled_to_benchmark_catalog"
+                  },
+                  {
+                      "path":  "benchmarks/topology/configs/sequential-gemma26-deepseek8-qwen4.json",
+                      "bytes":  2194,
+                      "sha256":  "6378616c883af9defa489b6960da1341c0d9be397b048f0c08d805e1604e32ab",
+                      "disposition":  "distilled_to_benchmark_catalog"
+                  },
+                  {
+                      "path":  "benchmarks/topology/configs/sequential-gptoss120-quarter-gpu-fresh.json",
+                      "bytes":  810,
+                      "sha256":  "d8cb2d20d8018ed82dadea16efeb4b8da2ba34939d6e2af7527fafe50c716ef6",
+                      "disposition":  "distilled_to_benchmark_catalog"
+                  },
+                  {
+                      "path":  "benchmarks/topology/configs/sequential-large-cumulative-chain.json",
+                      "bytes":  4253,
+                      "sha256":  "96a09c8a3ed86aa8b80ec499f93c5cb47c265d1439d9b6975cde4ae06798fe1c",
+                      "disposition":  "distilled_to_benchmark_catalog"
+                  },
+                  {
+                      "path":  "benchmarks/topology/configs/sequential-large-fresh-sweep.json",
+                      "bytes":  4148,
+                      "sha256":  "94221e9f89bd9a2b5d70b6d2deac40bb3d31b9af46924a00bdeb1bfb6e7feafc",
+                      "disposition":  "distilled_to_benchmark_catalog"
+                  },
+                  {
+                      "path":  "benchmarks/topology/configs/sequential-sweetspot-3large-plus-checker.json",
+                      "bytes":  2844,
+                      "sha256":  "b9b1a69159d753783b149f1c3850233436d5e514c836abda80c4d9ed57a462cd",
+                      "disposition":  "distilled_to_benchmark_catalog"
+                  },
+                  {
+                      "path":  "benchmarks/topology/README.md",
+                      "bytes":  900,
+                      "sha256":  "caaed6e7021ed2ec96eb448c070f86c7eb76f81cba635103dc23891a3ead35d1",
+                      "disposition":  "distilled_to_benchmark_catalog"
+                  },
+                  {
+                      "path":  "benchmarks/topology/schemas/checker.schema.json",
+                      "bytes":  945,
+                      "sha256":  "c2a873230df56c721e7b6a582c7eb79e87864270797281964b97ed8ba2ded669",
+                      "disposition":  "distilled_to_benchmark_catalog"
+                  },
+                  {
+                      "path":  "benchmarks/topology/schemas/proposal.schema.json",
+                      "bytes":  3620,
+                      "sha256":  "e37621768b821088fe78097c52cbecd88c501c4c0bd2bb3143e18d4223d9f068",
+                      "disposition":  "distilled_to_benchmark_catalog"
+                  },
+                  {
+                      "path":  "benchmarks/topology/schemas/proposal-flat.schema.json",
+                      "bytes":  3790,
+                      "sha256":  "27d1b6565e520f2d4a61c860b204a4875ab50c422894ac3d802eab5e37e61792",
+                      "disposition":  "distilled_to_benchmark_catalog"
+                  },
+                  {
+                      "path":  "benchmarks/topology/schemas/proposal-flat.v3.schema.json",
+                      "bytes":  5912,
+                      "sha256":  "5c92b06c52a855fbf73765697e79f38a0ad2c5e5eb1eefbabf05a4e4ff17120b",
+                      "disposition":  "distilled_to_benchmark_catalog"
+                  },
+                  {
+                      "path":  "benchmarks/topology/task.md",
+                      "bytes":  4105,
+                      "sha256":  "fd05379c3d363394ee9644857fa6c624c4d68ba2331992a5c397fb530ac2ed0e",
+                      "disposition":  "distilled_to_benchmark_catalog"
+                  },
+                  {
+                      "path":  "CODE_OF_CONDUCT.md",
+                      "bytes":  883,
+                      "sha256":  "4ee44257c6491df635677362c5b9775041d0ff185fc83d7a15abe2ad833b1b3b",
+                      "disposition":  "recreated_public_scaffolding"
+                  },
+                  {
+                      "path":  "CONTRIBUTING.md",
+                      "bytes":  3148,
+                      "sha256":  "54ad110e3408c10762177e398cc6961968a2f6505e79cf57fe99b69844d45e23",
+                      "disposition":  "recreated_public_scaffolding"
+                  },
+                  {
+                      "path":  "docs/findings.md",
+                      "bytes":  4445,
+                      "sha256":  "279a7ea158ee445af58c245aa52fe5fc7841355fbf6da1addcee46dec98259c7",
+                      "disposition":  "distilled_to_normalized_data"
+                  },
+                  {
+                      "path":  "docs/methodology.md",
+                      "bytes":  3468,
+                      "sha256":  "eaef3990e4ef9a0d14318727290412bf163235af0776d9a87c80135b29b23e58",
+                      "disposition":  "distilled_to_normalized_data"
+                  },
+                  {
+                      "path":  "docs/report-catalog.md",
+                      "bytes":  1804,
+                      "sha256":  "4d6e3288c14e4e4304e0f24ef1d10de998412522b247eaa94a7536ffc7fb1aef",
+                      "disposition":  "recreated_public_scaffolding"
+                  },
+                  {
+                      "path":  "docs/reports/2026-07-07-deepseek-candidate-study.md",
+                      "bytes":  11816,
+                      "sha256":  "ef4726ae610630460b48bbcafd2705d31a2bab8fa4bc39910442b135a0e04122",
+                      "disposition":  "distilled_to_normalized_data"
+                  },
+                  {
+                      "path":  "docs/reports/2026-07-07-lm-studio-selection-and-tests.md",
+                      "bytes":  10571,
+                      "sha256":  "a509a9a78bb3eda317fdda7c80473a3b4fe59b908a735db11457f63a3156f212",
+                      "disposition":  "distilled_to_normalized_data"
+                  },
+                  {
+                      "path":  "docs/reports/2026-07-07-local-model-installation-notes.md",
+                      "bytes":  3613,
+                      "sha256":  "77c01de0257ed5c07f5c46901298510077dbfe26334a707c57874ae024bf61da",
+                      "disposition":  "distilled_to_normalized_data"
+                  },
+                  {
+                      "path":  "docs/reports/2026-07-07-multi-model-combinations.md",
+                      "bytes":  8975,
+                      "sha256":  "e0174bffd2555e8018a0afa40776c15013bb6d401ab02b7a96a90a583994d07c",
+                      "disposition":  "distilled_to_normalized_data"
+                  },
+                  {
+                      "path":  "docs/reports/2026-07-07-open-model-vendor-candidates.md",
+                      "bytes":  14549,
+                      "sha256":  "bfbb63cdd550242bf3f3ecfc698e2cf06ba5f66771f88c8afd54dcd052866201",
+                      "disposition":  "distilled_to_normalized_data"
+                  },
+                  {
+                      "path":  "docs/reports/2026-07-07-pipeline-benchmark.md",
+                      "bytes":  5420,
+                      "sha256":  "b60e36d9a32ddf344b3a033820b853559093935eb0bd397c9721df6ea330fa30",
+                      "disposition":  "distilled_to_normalized_data"
+                  },
+                  {
+                      "path":  "docs/reports/2026-07-07-pipeline-routing-rag-reasoning.md",
+                      "bytes":  6425,
+                      "sha256":  "44634b0241d5fef08c09d5940a462d846848748944129c21193665c203cd855e",
+                      "disposition":  "distilled_to_normalized_data"
+                  },
+                  {
+                      "path":  "docs/reports/2026-07-07-real-task-pipeline-benchmark.md",
+                      "bytes":  5961,
+                      "sha256":  "c36ad189ffaae5894e32639c9f0f091f5565028190b0ef506be47713cd7147a3",
+                      "disposition":  "distilled_to_normalized_data"
+                  },
+                  {
+                      "path":  "docs/reports/2026-07-07-reproducible-evaluation-baseline.md",
+                      "bytes":  5349,
+                      "sha256":  "29056b67b7bb3e10f66d66329301eee4ccbf4e68230bcefbe497b830e30d3793",
+                      "disposition":  "distilled_to_normalized_data"
+                  },
+                  {
+                      "path":  "docs/reports/2026-07-07-to-10-multi-model-field-notes-curated.md",
+                      "bytes":  32203,
+                      "sha256":  "d6a3bcf5421976eb4789e5f8ce6d69d7bb7abcf38a1e94680a1b708bc9df7288",
+                      "disposition":  "distilled_to_normalized_data"
+                  },
+                  {
+                      "path":  "docs/reports/2026-07-09-multi-model-f053-f054.md",
+                      "bytes":  5124,
+                      "sha256":  "6a1857b03e2002b41e0117c5335d8eac4b09f932acf636dfcefb4361ae7a6fd1",
+                      "disposition":  "distilled_to_normalized_data"
+                  },
+                  {
+                      "path":  "docs/reports/2026-07-09-ollama-cloud-agent-evaluation.md",
+                      "bytes":  5509,
+                      "sha256":  "c751445687e0051f0b7981f5052b09d9e84ffec317eb50e22265bff5efd2a548",
+                      "disposition":  "distilled_to_normalized_data"
+                  },
+                  {
+                      "path":  "docs/reports/2026-07-10-configuration-cross-review.md",
+                      "bytes":  9875,
+                      "sha256":  "0475c97c2949693ecb8b750285b87a099d5d374be151e21b570e646e4954ef0d",
+                      "disposition":  "distilled_to_normalized_data"
+                  },
+                  {
+                      "path":  "docs/reports/2026-07-10-deepseek-24gb.md",
+                      "bytes":  13031,
+                      "sha256":  "985138899ad12f4bf91f704328a8c42c7124e7bad60e0746c504345c0cb2c44b",
+                      "disposition":  "distilled_to_normalized_data"
+                  },
+                  {
+                      "path":  "docs/reports/2026-07-10-rtx5090-laptop-overview.md",
+                      "bytes":  19633,
+                      "sha256":  "659c32086bc189f2f779aa0c768402be4561049705d7c695ea03470dc15888d7",
+                      "disposition":  "distilled_to_normalized_data"
+                  },
+                  {
+                      "path":  "docs/reports/2026-07-11-small-checker-concurrency.md",
+                      "bytes":  4410,
+                      "sha256":  "ed71cd786c628a403ba1fe78ff5c4e497833cb771a0364ad4a372444027d4a0e",
+                      "disposition":  "distilled_to_normalized_data"
+                  },
+                  {
+                      "path":  "docs/reports/2026-07-16-current-baseline.md",
+                      "bytes":  16897,
+                      "sha256":  "e63793968f39921a301f33bad171ef36030b8b6fa78d97ef29b8b66a5c226472",
+                      "disposition":  "distilled_to_normalized_data"
+                  },
+                  {
+                      "path":  "docs/reports/2026-07-16-devstral-q6-k-capability-card.md",
+                      "bytes":  3360,
+                      "sha256":  "d6c059fdc3268b896fcc7cbca4ce9d2ab272b7b1489467ff559fd52d520991e2",
+                      "disposition":  "distilled_to_normalized_data"
+                  },
+                  {
+                      "path":  "docs/repository-structure.md",
+                      "bytes":  3015,
+                      "sha256":  "694c8c551422d1df5a0448259c931b9ad20d4af9868bc81ce0920fad21f30906",
+                      "disposition":  "recreated_public_scaffolding"
+                  },
+                  {
+                      "path":  "docs/reproducibility.md",
+                      "bytes":  2732,
+                      "sha256":  "d1c43cd2b63344d7bdec2f9f889eec1a3f710a014f463acd4e087ca56739adba",
+                      "disposition":  "recreated_public_scaffolding"
+                  },
+                  {
+                      "path":  "docs/source-audit.md",
+                      "bytes":  3351,
+                      "sha256":  "e3e58b5eea9fdaa3fade9a55b50f0cd2ad60a4a348b2e0828e92264381a5f93c",
+                      "disposition":  "recreated_public_scaffolding"
+                  },
+                  {
+                      "path":  "LICENSE",
+                      "bytes":  1473,
+                      "sha256":  "6ca6aab5a0cc9d60ed8257a4641830d000cfebdc4d41d4ecc1097837989d9987",
+                      "disposition":  "recreated_public_scaffolding"
+                  },
+                  {
+                      "path":  "LICENSES/CC-BY-4.0.txt",
+                      "bytes":  19051,
+                      "sha256":  "cbd5af318286b74656f145dff5091907cc23d6d8c9ad09e0291ec2497792ba41",
+                      "disposition":  "reused_official_license_text"
+                  },
+                  {
+                      "path":  "LICENSES/MIT.txt",
+                      "bytes":  1104,
+                      "sha256":  "f96802b3035439370f5944de5794185e3596369beb060720b3463632de396f11",
+                      "disposition":  "reused_official_license_text"
+                  },
+                  {
+                      "path":  "PUBLICATION_CHECKLIST.md",
+                      "bytes":  1447,
+                      "sha256":  "32700dccb94b2235a53d968b13abba5d3e7e4db840422559b6150e0680c09550",
+                      "disposition":  "recreated_public_scaffolding"
+                  },
+                  {
+                      "path":  "README.md",
+                      "bytes":  3479,
+                      "sha256":  "28eef60c7a63326f801cee00b3a9fbde08d6be214c6f812ec7e91bc43afbdafc",
+                      "disposition":  "recreated_public_scaffolding"
+                  },
+                  {
+                      "path":  "results/README.md",
+                      "bytes":  612,
+                      "sha256":  "2f7a8d9b7f4b62eda9cfb1485a9e93d31add29c228eee273bcea93b740373134",
+                      "disposition":  "recreated_public_scaffolding"
+                  },
+                  {
+                      "path":  "results/reference/2026-07-16/data/checker-concurrency-2026-07-11.csv",
+                      "bytes":  269,
+                      "sha256":  "02f70c2fcd424c027eb4d51fd22c8baaf4f5ce40dd5c99e72f921aa10384ef2b",
+                      "disposition":  "distilled_to_normalized_data"
+                  },
+                  {
+                      "path":  "results/reference/2026-07-16/data/deepseek-2026-07-10.csv",
+                      "bytes":  363,
+                      "sha256":  "7732f3319a4f47f206074e9ce213c86302ad723d72bf8a0138ebbc201ff0d7d4",
+                      "disposition":  "distilled_to_normalized_data"
+                  },
+                  {
+                      "path":  "results/reference/2026-07-16/data/llama-bench-2026-07-16.csv",
+                      "bytes":  676,
+                      "sha256":  "bea72dd78ab9fe002c15f3131445ffe39b4ba51a5da4c55bb726464609ff578d",
+                      "disposition":  "distilled_to_normalized_data"
+                  },
+                  {
+                      "path":  "results/reference/2026-07-16/data/local-model-results-summary.json",
+                      "bytes":  2451,
+                      "sha256":  "b4c1b14ee19f47ac982b9e39414ff991a7dc1d6323a136bfd89a28f21b3e7f36",
+                      "disposition":  "distilled_to_normalized_data"
+                  },
+                  {
+                      "path":  "results/reference/2026-07-16/data/README.md",
+                      "bytes":  604,
+                      "sha256":  "1c0ed7d565971ab0551718db24e115b1197bfe305a8a10e1a79e114906a956b8",
+                      "disposition":  "recreated_public_scaffolding"
+                  },
+                  {
+                      "path":  "results/reference/2026-07-16/evidence/deepseek/benchmark-log.csv",
+                      "bytes":  461,
+                      "sha256":  "f9474690cb19b1843744965ea4a1134bd1ed479df32ce62745da9755467fc060",
+                      "disposition":  "omitted_raw_or_task_specific_evidence"
+                  },
+                  {
+                      "path":  "results/reference/2026-07-16/evidence/deepseek/deepseek-r1-0528-qwen3-8b_20260710-232741.json",
+                      "bytes":  3022,
+                      "sha256":  "50fa1b83bdb12c41afceeafe4e9b6b8badb977ed0d43ce44e5f0bc8d2a2566bc",
+                      "disposition":  "omitted_raw_or_task_specific_evidence"
+                  },
+                  {
+                      "path":  "results/reference/2026-07-16/evidence/deepseek/deepseek-r1-0528-qwen3-8b_20260710-233237.json",
+                      "bytes":  1367,
+                      "sha256":  "e29d084de6b4b3ca57099590e7940830fc67fe448554f08d901b73a98adcedf8",
+                      "disposition":  "omitted_raw_or_task_specific_evidence"
+                  },
+                  {
+                      "path":  "results/reference/2026-07-16/evidence/deepseek/deepseek-r1-distill-qwen-32b_20260710-232903.json",
+                      "bytes":  2550,
+                      "sha256":  "ac32c3814a2767b17223c3b17047edfa497043f53af3a21d90d65d228fde1d88",
+                      "disposition":  "omitted_raw_or_task_specific_evidence"
+                  },
+                  {
+                      "path":  "results/reference/2026-07-16/evidence/deepseek/deepseek-r1-distill-qwen-32b_20260710-233419.json",
+                      "bytes":  3077,
+                      "sha256":  "8c1aa8778c99e84be75726a6a9d78846f1fe286af6e9ab3ce3835cc1370818d9",
+                      "disposition":  "omitted_raw_or_task_specific_evidence"
+                  },
+                  {
+                      "path":  "results/reference/2026-07-16/evidence/devstral-q6-rust-eval/Cargo.lock",
+                      "bytes":  1800,
+                      "sha256":  "8a95c85d4aa9a24c4d10fc3311534359e6a454d731453dfc59178e2df195c85b",
+                      "disposition":  "omitted_raw_or_task_specific_evidence"
+                  },
+                  {
+                      "path":  "results/reference/2026-07-16/evidence/devstral-q6-rust-eval/Cargo.toml",
+                      "bytes":  164,
+                      "sha256":  "35af561d6c2f1f7dfd082ee32c0446791ff3fca0d17b882fa64169d377110066",
+                      "disposition":  "omitted_raw_or_task_specific_evidence"
+                  },
+                  {
+                      "path":  "results/reference/2026-07-16/evidence/devstral-q6-rust-eval/compiler-diagnostics.txt",
+                      "bytes":  752,
+                      "sha256":  "1c0db01cf6ce866bf9b6c4770af61be0136991d9c48c0cc629ab58e6f9ca1bcf",
+                      "disposition":  "omitted_raw_or_task_specific_evidence"
+                  },
+                  {
+                      "path":  "results/reference/2026-07-16/evidence/devstral-q6-rust-eval/repair-case.json",
+                      "bytes":  850,
+                      "sha256":  "5ab97552f29a69f92ac4af70859f79bf3e53b7b56ee8357297bc3421a2b99042",
+                      "disposition":  "omitted_raw_or_task_specific_evidence"
+                  },
+                  {
+                      "path":  "results/reference/2026-07-16/evidence/devstral-q6-rust-eval/src/lib.rs",
+                      "bytes":  3007,
+                      "sha256":  "ae9128d7047041eb898cf39a75999965e074a3abc77d14eda26be8577cdb8eaa",
+                      "disposition":  "omitted_raw_or_task_specific_evidence"
+                  },
+                  {
+                      "path":  "results/reference/2026-07-16/evidence/fixed-case-packet/README.md",
+                      "bytes":  3116,
+                      "sha256":  "00cb969d9b7f459cf07330aa69aaa28bd73abcf7ebce6cbcbf59a7a6ea8a97b7",
+                      "disposition":  "omitted_raw_or_task_specific_evidence"
+                  },
+                  {
+                      "path":  "results/reference/2026-07-16/evidence/gemma4/gemma4-31b-tokenizer-block-b10052.txt",
+                      "bytes":  958,
+                      "sha256":  "938c2ac92a6dbaa083a5ac8fe9b6585043de4ab7f25e82e816f596138d88be0c",
+                      "disposition":  "omitted_raw_or_task_specific_evidence"
+                  },
+                  {
+                      "path":  "results/reference/2026-07-16/evidence/gemma4/gemma4-31b-tokenizer-block-b9946.txt",
+                      "bytes":  1214,
+                      "sha256":  "f03c8b95f62ae041b7725d6948cff2a1be7476d60a3d842895832d5d981d99eb",
+                      "disposition":  "omitted_raw_or_task_specific_evidence"
+                  },
+                  {
+                      "path":  "results/reference/2026-07-16/evidence/gemma4/gemma4-agentic-v2-fixed-cases.txt",
+                      "bytes":  17256,
+                      "sha256":  "c493f9402a63727d050d97c65ee1f74a7800dc4bd713235ab1d25a9e46898da8",
+                      "disposition":  "omitted_raw_or_task_specific_evidence"
+                  },
+                  {
+                      "path":  "results/reference/2026-07-16/evidence/gemma4/gemma4-agentic-v2-native-benchmark.txt",
+                      "bytes":  1399,
+                      "sha256":  "7363965cd9933b0e13fc6bb5fb3ee2fa7fa83bedb790cd0af65ba68c1b900bad",
+                      "disposition":  "omitted_raw_or_task_specific_evidence"
+                  },
+                  {
+                      "path":  "results/reference/2026-07-16/evidence/local-topology/README.md",
+                      "bytes":  735,
+                      "sha256":  "33fbdf1a262022d585895ad32cfd0dadc6994a717e8df874353a47f021cc0e89",
+                      "disposition":  "omitted_raw_or_task_specific_evidence"
+                  },
+                  {
+                      "path":  "results/reference/2026-07-16/evidence/local-topology/summary.md",
+                      "bytes":  8608,
+                      "sha256":  "2a90ba3e6febcab6f7b4391103055990d25d0e9d10dfd22c990c859f9da90dfd",
+                      "disposition":  "omitted_raw_or_task_specific_evidence"
+                  },
+                  {
+                      "path":  "results/reference/2026-07-16/evidence/README.md",
+                      "bytes":  699,
+                      "sha256":  "eaa2899a8359d8ed89aa7eac0af42e34b3ae113d5912d71ab55d675e7c6e1618",
+                      "disposition":  "omitted_raw_or_task_specific_evidence"
+                  },
+                  {
+                      "path":  "results/reference/2026-07-16/evidence/rust-retry-eval/Cargo.lock",
+                      "bytes":  1797,
+                      "sha256":  "e18ace81de3e6d0fdae9f4c1880f9a4069e87bd20b2b2d6300a2ac12f8392f89",
+                      "disposition":  "omitted_raw_or_task_specific_evidence"
+                  },
+                  {
+                      "path":  "results/reference/2026-07-16/evidence/rust-retry-eval/Cargo.toml",
+                      "bytes":  172,
+                      "sha256":  "6ce45cc7c30ff7ce4e1a94c311366f464ef78162f110c3ea14dd8045eb4f70d0",
+                      "disposition":  "omitted_raw_or_task_specific_evidence"
+                  },
+                  {
+                      "path":  "results/reference/2026-07-16/evidence/rust-retry-eval/compiler-diagnostics.txt",
+                      "bytes":  605,
+                      "sha256":  "cfce8bb409db6e5cd0822e1a64a00744b44df15dc3172bfeba97170ebe7bb732",
+                      "disposition":  "omitted_raw_or_task_specific_evidence"
+                  },
+                  {
+                      "path":  "results/reference/2026-07-16/evidence/rust-retry-eval/leaf-synthesis-input.md",
+                      "bytes":  1633,
+                      "sha256":  "889feba2cc803490a8df8878507991c26381e29ec898071e15ffe63628fdda90",
+                      "disposition":  "omitted_raw_or_task_specific_evidence"
+                  },
+                  {
+                      "path":  "results/reference/2026-07-16/evidence/rust-retry-eval/src/lib.rs",
+                      "bytes":  4898,
+                      "sha256":  "caabeef6f05ed617e719f20b92f6e2e8125d3f846c1139c38b96f759b26904a5",
+                      "disposition":  "omitted_raw_or_task_specific_evidence"
+                  },
+                  {
+                      "path":  "results/reference/2026-07-16/evidence/small-checker/report.md",
+                      "bytes":  3649,
+                      "sha256":  "03e5fd761df4d1a6b4e82b7518c7b9f6d57bf59734e3687d91aa94372eec47ea",
+                      "disposition":  "omitted_raw_or_task_specific_evidence"
+                  },
+                  {
+                      "path":  "results/reference/2026-07-16/evidence/small-checker/result.json",
+                      "bytes":  4898,
+                      "sha256":  "f97017e9b1feca8a1aa455aa6d60e1c5214332711287aee9f8bc384226568fe0",
+                      "disposition":  "omitted_raw_or_task_specific_evidence"
+                  },
+                  {
+                      "path":  "results/reference/2026-07-16/MANIFEST.sha256",
+                      "bytes":  3388,
+                      "sha256":  "43d46ed69ce617df269d646975b9cb93edf78fd8b8af4292722d1b32991334cd",
+                      "disposition":  "recreated_public_scaffolding"
+                  },
+                  {
+                      "path":  "results/reference/2026-07-16/README.md",
+                      "bytes":  852,
+                      "sha256":  "69141702763b5bb5fdda672e4d70b042cbbc06bb640e5f3725fe36f6a83006af",
+                      "disposition":  "recreated_public_scaffolding"
+                  },
+                  {
+                      "path":  "REUSE.toml",
+                      "bytes":  740,
+                      "sha256":  "fad1377ccef3e38403c054588fd76a10fa61c6c3e5d19ddf573eb712adfd6a33",
+                      "disposition":  "recreated_public_scaffolding"
+                  },
+                  {
+                      "path":  "schemas/results.schema.json",
+                      "bytes":  1598,
+                      "sha256":  "ae14fa7d40cc2a7be573b3ff11faf321de2250d67285750814c94cb36a16729a",
+                      "disposition":  "recreated_public_scaffolding"
+                  },
+                  {
+                      "path":  "schemas/submission.schema.json",
+                      "bytes":  3464,
+                      "sha256":  "b18dac707091488ddcaf0b7a69f671553f2d7bf2ca935f4825b8e661a80f4dee",
+                      "disposition":  "recreated_public_scaffolding"
+                  },
+                  {
+                      "path":  "SECURITY.md",
+                      "bytes":  988,
+                      "sha256":  "3b5bac24dca44951ca689ce57b49564ba78520db4dc75393bd65787dba62f2af",
+                      "disposition":  "recreated_public_scaffolding"
+                  },
+                  {
+                      "path":  "submissions/_template/README.md",
+                      "bytes":  538,
+                      "sha256":  "0a5b99ee79838eb03712b3d31dbdbecb750c7f2ce7bb766cae822331c2402902",
+                      "disposition":  "recreated_public_scaffolding"
+                  },
+                  {
+                      "path":  "submissions/_template/results.json",
+                      "bytes":  424,
+                      "sha256":  "f3b5854768ad4c1e62805fdcdd7e81600e3913f9f67cae22f7f2b229d5115ced",
+                      "disposition":  "recreated_public_scaffolding"
+                  },
+                  {
+                      "path":  "submissions/_template/submission.json",
+                      "bytes":  954,
+                      "sha256":  "caa37b97e4359c4064c82052479fd83a38dc54301bb363c0eeb2ab7781b07608",
+                      "disposition":  "recreated_public_scaffolding"
+                  },
+                  {
+                      "path":  "submissions/README.md",
+                      "bytes":  1105,
+                      "sha256":  "a0eafface9991b325257642d6222d65af7313962902f7964cd8435b274ba7cd5",
+                      "disposition":  "recreated_public_scaffolding"
+                  },
+                  {
+                      "path":  "tools/evaluation/local-model-eval.ps1",
+                      "bytes":  6541,
+                      "sha256":  "112d6efccfdbefb13619904cad3a6068074e3c9001e8fa604596a965e90a1278",
+                      "disposition":  "omitted_task_specific_runner"
+                  },
+                  {
+                      "path":  "tools/evaluation/local-topology-benchmark.cjs",
+                      "bytes":  42754,
+                      "sha256":  "70984322569b8499c9c3fad53729d9276e928545c3f3c27203f0d08ea9e52e0e",
+                      "disposition":  "omitted_task_specific_runner"
+                  },
+                  {
+                      "path":  "tools/evaluation/small-checker-benchmark.cjs",
+                      "bytes":  6291,
+                      "sha256":  "bbaf4e17f6c8e55422ec7f91a1d4bc445ff847e0f53cc153b9f9bc418a152ede",
+                      "disposition":  "omitted_task_specific_runner"
+                  },
+                  {
+                      "path":  "tools/security/scan-secrets.ps1",
+                      "bytes":  2931,
+                      "sha256":  "6a9724014b7300255018539086886b8fda2af05a9e2a027204997626ee926abf",
+                      "disposition":  "recreated_public_scaffolding"
+                  },
+                  {
+                      "path":  "tools/validation/validate-repository.ps1",
+                      "bytes":  13154,
+                      "sha256":  "067e70369be754f4f866bdddf55b8d8b71ef4268621386b8cb898cc12692e141",
+                      "disposition":  "recreated_public_scaffolding"
+                  }
+              ]
+}

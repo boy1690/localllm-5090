@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0",
+  "topologies": [
+    {
+      "id": "daily-qwen4-to-ministral14",
+      "suite_id": "pipeline-real-task-2026-07-07",
+      "model_ids": ["qwen3-4b", "ministral-14b-reasoning"],
+      "mode": "sequential",
+      "status": "pass_historical",
+      "metrics": { "score": 24, "score_max": 25, "wall_seconds": 30.475, "loaded_vram_gib": 14.1 },
+      "finding": "Best historical daily/RAG route in the five-task suite."
+    },
+    {
+      "id": "review-qwen4-to-gptoss20",
+      "suite_id": "pipeline-real-task-2026-07-07",
+      "model_ids": ["qwen3-4b", "gpt-oss-20b-mxfp4"],
+      "mode": "sequential",
+      "status": "conditional_pass",
+      "metrics": { "score": 21, "score_max": 25, "wall_seconds": 15.231, "loaded_vram_gib": 16.2 },
+      "finding": "Fast engineering/review lane; source-conflict tasks require a strict output card."
+    },
+    {
+      "id": "sweetspot-gemma26-qwen35-qwen4",
+      "suite_id": "topology-2026-07-07-to-16",
+      "model_ids": ["gemma-4-26b-a4b-q4_k_m", "qwen3_6-35b-a3b-q4_k_m", "qwen3-4b"],
+      "mode": "sequential",
+      "status": "best_observed_design_chain",
+      "metrics": { "wall_seconds": 61.8, "mechanical_scores": [100, 100], "checker": "pass" },
+      "finding": "Best speed/quality design proposal, still requiring external semantic review."
+    },
+    {
+      "id": "coding-devstral-qwen27-qwen35-qwen4",
+      "suite_id": "topology-2026-07-07-to-16",
+      "model_ids": ["devstral-small-2-24b-q4_k_m", "qwen3_6-27b", "qwen3_6-35b-a3b-q4_k_m", "qwen3-4b"],
+      "mode": "sequential",
+      "status": "mechanical_pass_semantic_risk",
+      "metrics": { "wall_seconds": 159.7 },
+      "finding": "Extra seats increased cost and did not eliminate process-tree/rollback semantic errors."
+    },
+    {
+      "id": "five-large-plus-checker",
+      "suite_id": "topology-2026-07-07-to-16",
+      "model_ids": ["devstral-small-2-24b-q4_k_m", "gemma-4-26b-a4b-q4_k_m", "qwen3_6-27b", "deepseek-r1-distill-qwen-32b-q4_k_m", "qwen3_6-35b-a3b-q4_k_m", "qwen3-4b"],
+      "mode": "sequential",
+      "status": "fail_non_monotonic_quality",
+      "metrics": { "wall_seconds": 236.1, "manual_rescore": 69 },
+      "finding": "More large-model seats did not prevent semantic drift."
+    },
+    {
+      "id": "resident-gptoss20-qwen4-phi",
+      "suite_id": "topology-2026-07-07-to-16",
+      "model_ids": ["gpt-oss-20b-mxfp4", "qwen3-4b", "phi-4-mini"],
+      "mode": "resident",
+      "status": "capacity_pass",
+      "metrics": { "final_free_mib": 4222, "small_seat_shared_mib": [94, 96] },
+      "finding": "Largest admitted resident composition under the 2 GiB policy; small seats remain mechanical checkers."
+    },
+    {
+      "id": "resident-four-model-capacity",
+      "suite_id": "topology-2026-07-07-to-16",
+      "model_ids": ["gpt-oss-20b-mxfp4", "qwen3-4b", "phi-4-mini", "mistral-7b-v0_3-q4_k_s"],
+      "mode": "resident",
+      "status": "rejected_below_headroom",
+      "metrics": { "final_free_mib": 462 },
+      "finding": "Fourth resident model crossed the capacity boundary."
+    },
+    {
+      "id": "resident-deepseek8-qwen4-phi",
+      "suite_id": "topology-2026-07-07-to-16",
+      "model_ids": ["deepseek-r1-0528-qwen3-8b-q4_k_m", "qwen3-4b", "phi-4-mini"],
+      "mode": "resident",
+      "status": "invalid_chain",
+      "metrics": { "final_free_mib": 10225, "proposal_score": 69 },
+      "finding": "Capacity was safe, but malformed checker output made the chain invalid."
+    },
+    {
+      "id": "sequential-gemma26-deepseek8-qwen4",
+      "suite_id": "topology-2026-07-07-to-16",
+      "model_ids": ["gemma-4-26b-a4b-q4_k_m", "deepseek-r1-0528-qwen3-8b-q4_k_m", "qwen3-4b"],
+      "mode": "sequential",
+      "status": "needs_rework",
+      "metrics": { "mechanical_score": 69 },
+      "finding": "DeepSeek8 did not remove the existing high-severity issue and introduced another guard."
+    },
+    {
+      "id": "sequential-gemma26-deepseek32-qwen4",
+      "suite_id": "topology-2026-07-07-to-16",
+      "model_ids": ["gemma-4-26b-a4b-q4_k_m", "deepseek-r1-distill-qwen-32b-q4_k_m", "qwen3-4b"],
+      "mode": "sequential",
+      "status": "invalid_chain",
+      "metrics": { "deepseek_stage_seconds": 49.71, "mechanical_score": 69 },
+      "finding": "Slower than 8B without quality gain; final checker JSON was malformed."
+    },
+    {
+      "id": "fixed-qwen35-to-qwencoder-repair",
+      "suite_id": "topology-2026-07-07-to-16",
+      "model_ids": ["qwen3_6-35b-a3b-q4_k_m", "qwen2_5-coder-7b"],
+      "mode": "sequential_fixed_repair",
+      "status": "fail_candidate_degraded",
+      "metrics": { "external_test_result": "compile_fail" },
+      "finding": "Fixed 1+1 repair added contradictions and did not fix the counter capture."
+    },
+    {
+      "id": "adaptive-cross-family-rust-repair",
+      "suite_id": "topology-2026-07-07-to-16",
+      "model_ids": ["qwen3_6-35b-a3b-q4_k_m", "qwen3-4b", "qwen2_5-coder-7b", "phi-4-mini", "agents-a1-4b-q4_k_m"],
+      "mode": "adaptive_gate_driven",
+      "status": "pass",
+      "metrics": { "cargo_tests_passed": 5, "cargo_tests_failed": 0, "cargo_tests_ignored": 0 },
+      "finding": "Improvement came from distinct bounded friction and repeated objective gates, not voting."
+    }
+  ]
+}

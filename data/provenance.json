@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "distilled_at": "2026-07-17",
+  "source_tree_commit": "06ed00e",
+  "source_file_count": 119,
+  "source_bytes": 466592,
+  "policy": "Every source file is hashed and classified. Only normalized facts and public scaffolding are carried forward; raw evidence and task-specific runners are excluded.",
+  "dispositions": [
+    { "id": "distilled_to_normalized_data", "files": 24, "bytes": 194393, "public_content": "facts_only" },
+    { "id": "distilled_to_benchmark_catalog", "files": 34, "bytes": 69525, "public_content": "suite_metadata_only" },
+    { "id": "omitted_raw_or_task_specific_evidence", "files": 25, "bytes": 68687, "public_content": "hash_and_disposition_only" },
+    { "id": "omitted_task_specific_runner", "files": 3, "bytes": 55586, "public_content": "hash_and_disposition_only" },
+    { "id": "recreated_public_scaffolding", "files": 31, "bytes": 58246, "public_content": "rewritten_minimal_scaffolding" },
+    { "id": "reused_official_license_text", "files": 2, "bytes": 20155, "public_content": "license_text" }
+  ],
+  "source_manifest": "source-files.json",
+  "raw_source_published": false,
+  "limitations": [
+    "A SHA-256 manifest proves which local source version was distilled but does not reveal or reproduce omitted raw content.",
+    "The source commit remains local and is not intended to be pushed because its history contains the undistilled tree."
+  ]
+}

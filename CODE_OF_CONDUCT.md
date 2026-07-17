@@ -1,5 +1,13 @@
-# Code of Conduct
+# Code of Conduct / 行為準則
 
-請對方法、數據與可重現證據提出批評，不攻擊個人；清楚區分 observation、inference 與 preference；尊重不同硬體、預算與技術背景；不要公開他人的私人資訊。
+## English
 
-騷擾、歧視、威脅、惡意揭露私人資料或持續破壞性互動不被接受。維護者可移除內容或限制互動，並應以一致且保護當事人的方式處理。
+Critique methods, data, and reproducible evidence rather than people. Clearly distinguish observations, inferences, and preferences. Respect different hardware, budgets, and technical backgrounds. Never disclose another person's private information.
+
+Harassment, discrimination, threats, malicious disclosure of private information, and persistently disruptive behavior are not accepted. Maintainers may remove content or restrict participation and should act consistently while protecting affected people.
+
+## 繁體中文
+
+請對方法、數據與可重現證據提出批評，不攻擊個人。清楚區分 observation、inference 與 preference；尊重不同硬體、預算與技術背景；不要公開他人的私人資訊。
+
+騷擾、歧視、威脅、惡意揭露私人資料或持續破壞性互動均不被接受。維護者可移除內容或限制互動，並應以一致且保護當事人的方式處理。

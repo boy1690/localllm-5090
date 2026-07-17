@@ -11,3 +11,18 @@ See LICENSES/MIT.txt.
 
 Third-party material and model artifacts are not relicensed. Model weights are
 not distributed by this repository.
+
+---
+
+localllm-5090 採分離授權。
+
+文件與資料使用 Creative Commons Attribution 4.0 International（CC BY 4.0）。
+範圍包括 README.md、CONTRIBUTING.md、docs/**、data/**、submissions/**，
+以及供人閱讀的 Issue／Pull Request 範本。正式授權文字見
+LICENSES/CC-BY-4.0.txt。
+
+程式與工具使用 MIT License。範圍包括 tools/**、schemas/**、
+.github/workflows/** 與可執行的 repo 設定。正式授權文字見
+LICENSES/MIT.txt。
+
+第三方材料與模型產物不因本 repo 而重新授權。本 repo 不發布模型權重。

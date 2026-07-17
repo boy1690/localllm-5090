@@ -1,5 +1,6 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
+  "content_languages": ["en", "zh-TW"],
   "results": [
     {
       "id": "native-agents-a1-4b-8k",
@@ -88,7 +89,8 @@
       "status": "historical_speed_mixed_lane",
       "metrics": { "pp512_tokens_per_second": null, "tg128_tokens_per_second": 125, "vram_after_gib": 18.79, "shared_mib": 104 },
       "decision": "content_typescript_repair_proposal",
-      "notes": "The ~125 tg/s value is historical and not a current native-lane measurement."
+      "notes": "The ~125 tg/s value is historical and not a current native-lane measurement.",
+      "notes_zh_tw": "約 125 tg/s 是歷史值，不是目前 native lane 的量測。"
     },
     {
       "id": "devstral-q6-fixed-contract",

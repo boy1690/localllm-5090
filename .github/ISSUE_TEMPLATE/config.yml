@@ -1,5 +1,5 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Security or privacy report
+  - name: Security or privacy report / 安全或隱私通報
     url: https://github.com/security
-    about: Do not disclose private workstation data in a public issue.
+    about: Do not disclose private workstation data in a public issue. / 請勿在公開 Issue 揭露私人工作站資料。

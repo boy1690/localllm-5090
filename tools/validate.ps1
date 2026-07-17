@@ -48,6 +48,60 @@ function Test-UniqueIds {
     return $ids
 }
 
+function Test-MeaningfulValue {
+    param([object]$Value)
+    if ($null -eq $Value) { return $false }
+    if ($Value -is [string]) { return -not [string]::IsNullOrWhiteSpace($Value) }
+    if ($Value -is [System.Collections.IEnumerable]) {
+        $items = @($Value)
+        if ($items.Count -eq 0) { return $false }
+        foreach ($item in $items) {
+            if ($item -is [string] -and [string]::IsNullOrWhiteSpace($item)) { return $false }
+        }
+    }
+    return $true
+}
+
+function Test-BilingualPair {
+    param([object]$Object, [string]$EnglishProperty, [string]$ChineseProperty, [string]$Context)
+    if ($null -eq $Object) {
+        Add-Failure "$Context is missing"
+        return
+    }
+    $propertyNames = @($Object.PSObject.Properties.Name)
+    if ($propertyNames -notcontains $EnglishProperty -or -not (Test-MeaningfulValue $Object.$EnglishProperty)) {
+        Add-Failure "$Context has empty or missing English field: $EnglishProperty"
+    }
+    if ($propertyNames -notcontains $ChineseProperty -or -not (Test-MeaningfulValue $Object.$ChineseProperty)) {
+        Add-Failure "$Context has empty or missing Traditional Chinese field: $ChineseProperty"
+    }
+}
+
+function Test-ContentLanguages {
+    param([object]$Object, [string]$Context)
+    if ((@($Object.content_languages) -join ',') -ne 'en,zh-TW') {
+        Add-Failure "$Context must declare content_languages [en, zh-TW]"
+    }
+}
+
+function Test-SubmissionBilingual {
+    param([object]$Submission, [string]$Context)
+    if ($Submission.schema_version -ne '1.1') { Add-Failure "$Context must use schema_version 1.1" }
+    Test-ContentLanguages $Submission $Context
+    Test-BilingualPair $Submission 'limitations' 'limitations_zh_tw' $Context
+    if (@($Submission.limitations).Count -ne @($Submission.limitations_zh_tw).Count) {
+        Add-Failure "$Context limitations language arrays must have the same length"
+    }
+    foreach ($result in @($Submission.results)) {
+        $resultContext = "$Context result $($result.metric)"
+        Test-BilingualPair $result 'gate' 'gate_zh_tw' $resultContext
+        $names = @($result.PSObject.Properties.Name)
+        if ($names -contains 'notes' -or $names -contains 'notes_zh_tw') {
+            Test-BilingualPair $result 'notes' 'notes_zh_tw' $resultContext
+        }
+    }
+}
+
 function Test-SubmissionSchema {
     param([string]$JsonPath, [string]$Context)
     if (-not (Get-Command Test-Json -ErrorAction SilentlyContinue)) { return }
@@ -108,9 +162,10 @@ foreach ($docAndName in @(
     @($resultsDoc, 'results'), @($topologiesDoc, 'topologies'), @($decisionsDoc, 'decisions'),
     @($provenanceDoc, 'provenance'), @($sourceFilesDoc, 'source-files')
 )) {
-    if ($null -ne $docAndName[0] -and $docAndName[0].schema_version -ne '1.0') {
+    if ($null -ne $docAndName[0] -and $docAndName[0].schema_version -ne '1.1') {
         Add-Failure "unsupported schema_version: $($docAndName[1])"
     }
+    if ($null -ne $docAndName[0]) { Test-ContentLanguages $docAndName[0] $docAndName[1] }
 }
 
 $systemIds = if ($systemsDoc) { @(Test-UniqueIds @($systemsDoc.systems) 'systems') } else { @() }
@@ -119,12 +174,35 @@ $suiteIds = if ($suitesDoc) { @(Test-UniqueIds @($suitesDoc.suites) 'benchmark s
 $resultIds = if ($resultsDoc) { @(Test-UniqueIds @($resultsDoc.results) 'results') } else { @() }
 $topologyIds = if ($topologiesDoc) { @(Test-UniqueIds @($topologiesDoc.topologies) 'topologies') } else { @() }
 
+if ($modelsDoc) {
+    foreach ($row in @($modelsDoc.models)) { Test-BilingualPair $row 'summary' 'summary_zh_tw' "model $($row.id)" }
+}
+
+if ($suitesDoc) {
+    foreach ($row in @($suitesDoc.suites)) {
+        Test-BilingualPair $row 'purpose' 'purpose_zh_tw' "suite $($row.id)"
+        Test-BilingualPair $row 'objective_gate' 'objective_gate_zh_tw' "suite $($row.id)"
+        Test-BilingualPair $row 'comparability' 'comparability_zh_tw' "suite $($row.id)"
+    }
+}
+
+if ($systemsDoc) {
+    foreach ($row in @($systemsDoc.systems)) {
+        Test-BilingualPair $row 'redaction' 'redaction_zh_tw' "system $($row.id)"
+        Test-BilingualPair $row.operating_policy 'gpu_owner' 'gpu_owner_zh_tw' "system $($row.id) operating policy"
+    }
+}
+
 if ($resultsDoc) {
     foreach ($row in @($resultsDoc.results)) {
         if ($systemIds -notcontains [string]$row.system_id) { Add-Failure "result $($row.id) references unknown system_id" }
         if ($modelIds -notcontains [string]$row.model_id) { Add-Failure "result $($row.id) references unknown model_id" }
         if ($suiteIds -notcontains [string]$row.suite_id) { Add-Failure "result $($row.id) references unknown suite_id" }
         if ($null -eq $row.metrics -or $row.metrics.PSObject.Properties.Count -eq 0) { Add-Failure "result $($row.id) has no metrics" }
+        $resultNames = @($row.PSObject.Properties.Name)
+        if ($resultNames -contains 'notes' -or $resultNames -contains 'notes_zh_tw') {
+            Test-BilingualPair $row 'notes' 'notes_zh_tw' "result $($row.id)"
+        }
     }
 }
 
@@ -134,6 +212,7 @@ if ($topologiesDoc) {
         foreach ($modelId in @($row.model_ids)) {
             if ($modelIds -notcontains [string]$modelId) { Add-Failure "topology $($row.id) references unknown model_id $modelId" }
         }
+        Test-BilingualPair $row 'finding' 'finding_zh_tw' "topology $($row.id)"
     }
 }
 
@@ -154,6 +233,17 @@ if ($decisionsDoc) {
                 if ($topologyIds -notcontains [string]$topologyId) { Add-Failure "decision $($row.id) references unknown topology_id $topologyId" }
             }
         }
+    }
+    foreach ($row in @($decisionsDoc.prohibitions)) {
+        Test-BilingualPair $row 'rule' 'rule_zh_tw' "decision prohibition $($row.id)"
+    }
+}
+
+if ($provenanceDoc) {
+    Test-BilingualPair $provenanceDoc 'policy' 'policy_zh_tw' 'provenance policy'
+    Test-BilingualPair $provenanceDoc 'limitations' 'limitations_zh_tw' 'provenance limitations'
+    if (@($provenanceDoc.limitations).Count -ne @($provenanceDoc.limitations_zh_tw).Count) {
+        Add-Failure 'provenance limitation language arrays must have the same length'
     }
 }
 
@@ -204,6 +294,7 @@ if (Test-Path -LiteralPath $submissionRoot -PathType Container) {
             if ($submission.license_accepted -ne $true) { Add-Failure "license_accepted must be true: $($runDir.Name)" }
             if (@($submission.results).Count -eq 0) { Add-Failure "submission has no results: $($runDir.Name)" }
             if ($submission.model.file_sha256 -and [string]$submission.model.file_sha256 -notmatch '^[a-f0-9]{64}$') { Add-Failure "invalid submission SHA-256: $($runDir.Name)" }
+            Test-SubmissionBilingual $submission "$($submitterDir.Name)/$($runDir.Name)"
         }
     }
 }
@@ -212,6 +303,8 @@ Write-Output "COMMUNITY_SUBMISSION_COUNT=$submissionCount"
 $templatePath = Join-Path $Root 'submissions/_template/submission.json'
 if (Test-Path -LiteralPath $templatePath -PathType Leaf) {
     Test-SubmissionSchema $templatePath 'submissions/_template/submission.json'
+    $templateSubmission = Get-Content -LiteralPath $templatePath -Raw -Encoding UTF8 | ConvertFrom-Json
+    Test-SubmissionBilingual $templateSubmission 'submissions/_template/submission.json'
 }
 if (Get-Command Test-Json -ErrorAction SilentlyContinue) {
     Write-Output "JSON_SCHEMA_VALIDATION_COUNT=$schemaValidationCount"
@@ -225,6 +318,28 @@ foreach ($scriptFile in $files | Where-Object Extension -eq '.ps1') {
     $null = [System.Management.Automation.Language.Parser]::ParseFile($scriptFile.FullName, [ref]$tokens, [ref]$parseErrors)
     if ($parseErrors.Count -gt 0) { Add-Failure "PowerShell parse failed: $($scriptFile.Name)" }
 }
+
+$bilingualMarkdownPaths = @(
+    'README.md', 'CONTRIBUTING.md', 'SECURITY.md', 'CODE_OF_CONDUCT.md',
+    'data/README.md', 'submissions/README.md', '.github/PULL_REQUEST_TEMPLATE.md'
+) + @(Get-ChildItem -LiteralPath (Join-Path $Root 'docs') -Filter '*.md' -File | ForEach-Object {
+    $_.FullName.Substring($Root.Length).TrimStart('\', '/').Replace('\', '/')
+})
+$bilingualMarkdownCount = 0
+foreach ($relativePath in $bilingualMarkdownPaths) {
+    $markdownPath = Join-Path $Root $relativePath
+    if (-not (Test-Path -LiteralPath $markdownPath -PathType Leaf)) {
+        Add-Failure "missing bilingual markdown: $relativePath"
+        continue
+    }
+    $markdown = Get-Content -LiteralPath $markdownPath -Raw -Encoding UTF8
+    if ($markdown -notmatch '(?i)English' -or $markdown -notmatch '[\u4e00-\u9fff]') {
+        Add-Failure "bilingual markdown coverage missing: $relativePath"
+    } else {
+        $bilingualMarkdownCount++
+    }
+}
+Write-Output "BILINGUAL_MARKDOWN_COUNT=$bilingualMarkdownCount"
 
 try {
     & (Join-Path $Root 'tools/scan-secrets.ps1') -Root $Root

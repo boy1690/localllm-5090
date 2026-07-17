@@ -1,5 +1,6 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
+  "content_languages": ["en", "zh-TW"],
   "models": [
     {
       "id": "agents-a1-4b-q4_k_m",
@@ -9,7 +10,8 @@
       "status": "tested",
       "recommended_roles": ["required_tool_call", "narrow_compiler_friction"],
       "blocked_roles": ["general_build", "long_form_worker", "judge"],
-      "summary": "Tool call passed; long text frequently consumed the budget in reasoning or produced weak non-thinking code."
+      "summary": "Tool call passed; long text frequently consumed the budget in reasoning or produced weak non-thinking code.",
+      "summary_zh_tw": "工具呼叫通過；長文字經常把預算耗在 reasoning，或產生品質較弱的 non-thinking 程式碼。"
     },
     {
       "id": "ornith-1_0-9b-q4_k_m",
@@ -19,7 +21,8 @@
       "status": "tested",
       "recommended_roles": ["proposal_leaf", "counterexample_leaf"],
       "blocked_roles": ["review_authority", "rust_repair"],
-      "summary": "Useful proposals, but output-contract violations and false assurance were observed."
+      "summary": "Useful proposals, but output-contract violations and false assurance were observed.",
+      "summary_zh_tw": "可提供有用提案，但觀察到輸出契約違反與錯誤保證。"
     },
     {
       "id": "gemma-4-12b-agentic-v2-q4_k_m",
@@ -29,7 +32,8 @@
       "status": "tested",
       "recommended_roles": ["test_idea_leaf", "tool_call_probe"],
       "blocked_roles": ["direct_patch", "compiler_correctness_authority"],
-      "summary": "Native speed and tool use were usable; Rust output had hard API, ownership and async errors."
+      "summary": "Native speed and tool use were usable; Rust output had hard API, ownership and async errors.",
+      "summary_zh_tw": "Native 速度與工具使用可用；Rust 輸出存在明確的 API、ownership 與 async 錯誤。"
     },
     {
       "id": "devstral-small-2-24b-q4_k_m",
@@ -39,7 +43,8 @@
       "status": "tested",
       "recommended_roles": ["typescript_build", "general_build"],
       "blocked_roles": ["standalone_high_risk_rust_judge"],
-      "summary": "Most stable direct general worker in this snapshot; high-risk Rust still requires compiler/test gates."
+      "summary": "Most stable direct general worker in this snapshot; high-risk Rust still requires compiler/test gates.",
+      "summary_zh_tw": "本快照中最穩定的直接一般 worker；高風險 Rust 仍須 compiler／test gates。"
     },
     {
       "id": "devstral-small-2-24b-q6_k",
@@ -55,7 +60,8 @@
       },
       "recommended_roles": ["typescript_build_with_gate"],
       "blocked_roles": ["rust_worker", "repair", "judge", "q4_replacement"],
-      "summary": "8K/16K fit passed, but no verified quality uplift and about 26% slower than Q4_K_M."
+      "summary": "8K/16K fit passed, but no verified quality uplift and about 26% slower than Q4_K_M.",
+      "summary_zh_tw": "8K／16K 容量通過，但未驗證出品質提升，且比 Q4_K_M 約慢 26%。"
     },
     {
       "id": "qwen3_6-35b-a3b-q4_k_m",
@@ -65,7 +71,8 @@
       "status": "tested",
       "recommended_roles": ["json_materialization_non_thinking", "high_risk_rust_thinking", "repair_synthesis"],
       "blocked_roles": ["ungated_delivery"],
-      "summary": "Current 24GB quality lead; 32K thinking can produce a strong core but still needs adaptive compiler/test repair."
+      "summary": "Current 24GB quality lead; 32K thinking can produce a strong core but still needs adaptive compiler/test repair.",
+      "summary_zh_tw": "目前 24 GB 級距的品質領先者；32K thinking 可產生強核心，但仍需 adaptive compiler／test repair。"
     },
     {
       "id": "north-mini-code-1_0-q4_k_m",
@@ -75,7 +82,8 @@
       "status": "tested",
       "recommended_roles": ["typescript_second_opinion"],
       "blocked_roles": ["rust_worker", "long_context_worker"],
-      "summary": "Fast generation and acceptable TypeScript, but invalid Tokio repair and a 32K timeout with no final."
+      "summary": "Fast generation and acceptable TypeScript, but invalid Tokio repair and a 32K timeout with no final.",
+      "summary_zh_tw": "生成快速且 TypeScript 可接受，但 Tokio repair 無效，32K 測試逾時且沒有 final。"
     },
     {
       "id": "gemma-4-26b-a4b-q4_k_m",
@@ -85,7 +93,8 @@
       "status": "tested",
       "recommended_roles": ["content_proposal", "typescript_proposal", "repair_proposal"],
       "blocked_roles": ["standalone_json_authority", "standalone_rust_authority"],
-      "summary": "Balanced historical worker with safe 8K capacity; strict JSON and Rust remained unstable."
+      "summary": "Balanced historical worker with safe 8K capacity; strict JSON and Rust remained unstable.",
+      "summary_zh_tw": "歷史上較平衡的 worker，8K 容量安全；strict JSON 與 Rust 仍不穩定。"
     },
     {
       "id": "deepseek-r1-0528-qwen3-8b-q4_k_m",
@@ -95,7 +104,8 @@
       "status": "tested",
       "recommended_roles": ["on_demand_reasoning", "counterexample"],
       "blocked_roles": ["short_budget_json_only", "default_main_worker"],
-      "summary": "Good speed/capacity; reasoning tax can consume the whole final-answer budget."
+      "summary": "Good speed/capacity; reasoning tax can consume the whole final-answer budget.",
+      "summary_zh_tw": "速度與容量良好；reasoning 成本可能耗盡整個 final-answer 預算。"
     },
     {
       "id": "deepseek-r1-distill-qwen-32b-q4_k_m",
@@ -105,7 +115,8 @@
       "status": "tested_route_limited",
       "recommended_roles": ["sequential_edge_review_4k"],
       "blocked_roles": ["8k_context", "default_worker"],
-      "summary": "4K sequential only; 8K failed the 2 GiB headroom gate and repair quality did not beat the 8B model."
+      "summary": "4K sequential only; 8K failed the 2 GiB headroom gate and repair quality did not beat the 8B model.",
+      "summary_zh_tw": "僅限 4K sequential；8K 未通過 2 GiB headroom gate，repair 品質也未勝過 8B 模型。"
     },
     {
       "id": "qwen3-4b",
@@ -115,7 +126,8 @@
       "status": "tested",
       "recommended_roles": ["bounded_checker", "router", "exact_audit"],
       "blocked_roles": ["semantic_authority", "majority_vote_judge"],
-      "summary": "Efficiency-first exact checker; P10 achieved 7/10 on the fixed suite."
+      "summary": "Efficiency-first exact checker; P10 achieved 7/10 on the fixed suite.",
+      "summary_zh_tw": "效率優先的 exact checker；固定 suite 的 P10 為 7／10。"
     },
     {
       "id": "qwen2_5-coder-7b",
@@ -125,7 +137,8 @@
       "status": "tested",
       "recommended_roles": ["code_specific_checker", "narrow_escalation"],
       "blocked_roles": ["free_rewrite", "self_verified_repair"],
-      "summary": "Quality-first small checker; P10 achieved 8/10, but a fixed compiler-repair chain degraded a candidate."
+      "summary": "Quality-first small checker; P10 achieved 8/10, but a fixed compiler-repair chain degraded a candidate.",
+      "summary_zh_tw": "品質優先的小型 checker；P10 為 8／10，但固定 compiler-repair chain 曾使 candidate 退化。"
     },
     {
       "id": "phi-4-mini",
@@ -135,7 +148,8 @@
       "status": "tested",
       "recommended_roles": ["short_deterministic_probe"],
       "blocked_roles": ["fixed_checker_contract", "semantic_authority"],
-      "summary": "Fast and small, but only 3/10 exact on the fixed checker contract."
+      "summary": "Fast and small, but only 3/10 exact on the fixed checker contract.",
+      "summary_zh_tw": "快速且體積小，但固定 checker contract 的 exact 結果只有 3／10。"
     },
     {
       "id": "ministral-14b-reasoning",
@@ -145,7 +159,8 @@
       "status": "historical_tested",
       "recommended_roles": ["daily_rag", "source_conflict"],
       "blocked_roles": ["fixed_rust_judge"],
-      "summary": "Strong historical daily/RAG lane; fixed Rust judge output contained no-op and incomplete patches."
+      "summary": "Strong historical daily/RAG lane; fixed Rust judge output contained no-op and incomplete patches.",
+      "summary_zh_tw": "歷史 daily／RAG lane 表現強；固定 Rust judge 輸出包含 no-op 與不完整 patch。"
     },
     {
       "id": "gpt-oss-20b-mxfp4",
@@ -155,7 +170,8 @@
       "status": "tested_route_limited",
       "recommended_roles": ["standalone_coding_review", "strict_card_synthesis"],
       "blocked_roles": ["lm_studio_openai_structured_route_without_checker"],
-      "summary": "Fast standalone llama.cpp lane; a separate LM Studio structured route was rejected for output-carrier contamination."
+      "summary": "Fast standalone llama.cpp lane; a separate LM Studio structured route was rejected for output-carrier contamination.",
+      "summary_zh_tw": "獨立 llama.cpp lane 速度快；另一條 LM Studio structured route 因 output-carrier contamination 被拒絕。"
     },
     {
       "id": "gpt-oss-120b",
@@ -165,7 +181,8 @@
       "status": "tested_offload",
       "recommended_roles": ["batch", "overnight"],
       "blocked_roles": ["interactive_default"],
-      "summary": "25% GPU/75% RAM profile passed the task contract but required roughly four minutes."
+      "summary": "25% GPU/75% RAM profile passed the task contract but required roughly four minutes.",
+      "summary_zh_tw": "25% GPU／75% RAM profile 通過 task contract，但約需四分鐘。"
     },
     {
       "id": "qwen3_6-27b",
@@ -175,7 +192,8 @@
       "status": "historical_tested",
       "recommended_roles": ["windows_edge_review"],
       "blocked_roles": ["carrier_unaware_pipeline"],
-      "summary": "Useful reviewer; structured JSON was observed in reasoning_content on one route."
+      "summary": "Useful reviewer; structured JSON was observed in reasoning_content on one route.",
+      "summary_zh_tw": "可用的 reviewer；其中一條 route 曾在 reasoning_content 中觀察到 structured JSON。"
     },
     {
       "id": "olmo-3-7b-q4_k_s",
@@ -185,7 +203,8 @@
       "status": "historical_probe",
       "recommended_roles": ["cross_family_probe"],
       "blocked_roles": ["long_context_api_generation"],
-      "summary": "Open-family comparison model; long-context result produced a final with fabricated APIs."
+      "summary": "Open-family comparison model; long-context result produced a final with fabricated APIs.",
+      "summary_zh_tw": "開放模型家族的比較模型；long-context 結果產生了含虛構 API 的 final。"
     },
     {
       "id": "mistral-7b-v0_3-q4_k_s",
@@ -195,7 +214,8 @@
       "status": "load_tested_route_blocked",
       "recommended_roles": ["future_small_backup_after_template_fix"],
       "blocked_roles": ["current_openai_api_route"],
-      "summary": "Model loaded, but the observed API preset/template produced 400 or empty output."
+      "summary": "Model loaded, but the observed API preset/template produced 400 or empty output.",
+      "summary_zh_tw": "模型可載入，但觀察到的 API preset／template 產生 HTTP 400 或空輸出。"
     },
     {
       "id": "laguna-xs-2_1",
@@ -205,7 +225,8 @@
       "status": "compatibility_blocked",
       "recommended_roles": [],
       "blocked_roles": ["all_until_runtime_support"],
-      "summary": "Observed LM Studio backend reported an unknown laguna architecture."
+      "summary": "Observed LM Studio backend reported an unknown laguna architecture.",
+      "summary_zh_tw": "觀察到的 LM Studio backend 回報未知的 laguna architecture。"
     },
     {
       "id": "gemma-4-31b-qat-q4_0",
@@ -215,7 +236,8 @@
       "status": "compatibility_blocked",
       "recommended_roles": [],
       "blocked_roles": ["quality_evaluation_until_load_succeeds"],
-      "summary": "Download completed, but two llama.cpp builds hit tokenizer-load assertions; no quality conclusion."
+      "summary": "Download completed, but two llama.cpp builds hit tokenizer-load assertions; no quality conclusion.",
+      "summary_zh_tw": "下載已完成，但兩個 llama.cpp build 都遇到 tokenizer-load assertion；沒有品質結論。"
     },
     {
       "id": "gemma-4-26b-a4b-qat-q4_0",
@@ -225,7 +247,8 @@
       "status": "partial_asset",
       "recommended_roles": [],
       "blocked_roles": ["all_until_integrity_and_load_validation"],
-      "summary": "Only a partial download existed; integrity, load and quality were not tested."
+      "summary": "Only a partial download existed; integrity, load and quality were not tested.",
+      "summary_zh_tw": "只有部分下載；完整性、載入與品質均未測試。"
     }
   ]
 }

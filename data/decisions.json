@@ -1,5 +1,6 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
+  "content_languages": ["en", "zh-TW"],
   "as_of": "2026-07-17",
   "routes": [
     {
@@ -64,36 +65,42 @@
       "id": "no-devstral-q6-promotion",
       "model_ids": ["devstral-small-2-24b-q6_k"],
       "rule": "Do not use as Rust worker, repair, judge, or replacement for the Q4 general worker.",
+      "rule_zh_tw": "不得作為 Rust worker、repair、judge，或取代 Q4 一般 worker。",
       "evidence_result_ids": ["native-devstral24-q6-8k", "devstral-q6-fixed-contract"]
     },
     {
       "id": "no-deepseek32-8k",
       "model_ids": ["deepseek-r1-distill-qwen-32b-q4_k_m"],
       "rule": "Do not admit context 8192 on the reference system under the 2 GiB headroom policy.",
+      "rule_zh_tw": "在 reference system 的 2 GiB headroom policy 下，不得准入 context 8192。",
       "evidence_result_ids": ["deepseek32-8k-capacity"]
     },
     {
       "id": "no-fixed-voting-authority",
       "model_ids": [],
       "rule": "Do not use seat count, repeated slots, or model majority vote as a correctness gate.",
+      "rule_zh_tw": "不得把席位數、重複 slots 或模型多數票當成 correctness gate。",
       "evidence_topology_ids": ["five-large-plus-checker", "fixed-qwen35-to-qwencoder-repair"]
     },
     {
       "id": "no-four-large-resident-default",
       "model_ids": [],
       "rule": "Do not keep four or more models resident on the reference 24GB GPU.",
+      "rule_zh_tw": "不得在 reference 24 GB GPU 上保持四個以上模型 resident。",
       "evidence_topology_ids": ["resident-four-model-capacity"]
     },
     {
       "id": "no-model-self-verification",
       "model_ids": [],
       "rule": "A model claim that code compiles or tests pass is not evidence without an external gate.",
+      "rule_zh_tw": "沒有外部 gate 時，模型聲稱程式可編譯或測試通過不算證據。",
       "evidence_result_ids": ["devstral-q6-fixed-contract"]
     },
     {
       "id": "no-cross-lane-speed-average",
       "model_ids": [],
       "rule": "Do not average native llama.cpp throughput with LM Studio end-to-end structured timing.",
+      "rule_zh_tw": "不得把 native llama.cpp throughput 與 LM Studio end-to-end structured timing 平均。",
       "evidence_result_ids": []
     }
   ]

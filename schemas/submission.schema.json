@@ -1,10 +1,12 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "localllm-5090 distilled submission",
+  "title": "localllm-5090 distilled submission / 蒸餾投稿",
+  "$comment": "English is stored in base natural-language fields; Traditional Chinese is stored in matching *_zh_tw fields. / 英文放在基本自然語言欄位，繁中放在對應的 *_zh_tw 欄位。",
   "type": "object",
   "additionalProperties": false,
   "required": [
     "schema_version",
+    "content_languages",
     "submission_id",
     "completed_date",
     "submitter_slug",
@@ -15,10 +17,12 @@
     "evaluation",
     "results",
     "limitations",
+    "limitations_zh_tw",
     "license_accepted"
   ],
   "properties": {
-    "schema_version": { "const": "1.0" },
+    "schema_version": { "const": "1.1" },
+    "content_languages": { "const": ["en", "zh-TW"] },
     "submission_id": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}--[a-z0-9][a-z0-9-]{1,63}$" },
     "completed_date": { "type": "string", "format": "date" },
     "submitter_slug": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,63}$" },
@@ -76,18 +80,25 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["metric", "value", "unit", "status", "gate"],
+        "required": ["metric", "value", "unit", "status", "gate", "gate_zh_tw"],
         "properties": {
           "metric": { "type": "string", "pattern": "^[a-z0-9][a-z0-9_]{1,63}$" },
           "value": { "type": ["number", "integer", "string", "null"] },
           "unit": { "type": "string" },
           "status": { "enum": ["pass", "fail", "measured", "not_run", "error"] },
           "gate": { "type": "string", "minLength": 1 },
-          "notes": { "type": "string" }
+          "gate_zh_tw": { "type": "string", "minLength": 1 },
+          "notes": { "type": "string", "minLength": 1 },
+          "notes_zh_tw": { "type": "string", "minLength": 1 }
+        },
+        "dependencies": {
+          "notes": ["notes_zh_tw"],
+          "notes_zh_tw": ["notes"]
         }
       }
     },
     "limitations": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "limitations_zh_tw": { "type": "array", "items": { "type": "string", "minLength": 1 } },
     "license_accepted": { "const": true }
   }
 }

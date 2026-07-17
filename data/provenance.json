@@ -1,10 +1,12 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
+  "content_languages": ["en", "zh-TW"],
   "distilled_at": "2026-07-17",
   "source_tree_commit": "06ed00e",
   "source_file_count": 119,
   "source_bytes": 466592,
   "policy": "Every source file is hashed and classified. Only normalized facts and public scaffolding are carried forward; raw evidence and task-specific runners are excluded.",
+  "policy_zh_tw": "每個來源檔均已雜湊並分類。只帶入正規化事實與公開 scaffolding；raw evidence 與 task-specific runners 均排除。",
   "dispositions": [
     { "id": "distilled_to_normalized_data", "files": 24, "bytes": 194393, "public_content": "facts_only" },
     { "id": "distilled_to_benchmark_catalog", "files": 34, "bytes": 69525, "public_content": "suite_metadata_only" },
@@ -18,5 +20,9 @@
   "limitations": [
     "A SHA-256 manifest proves which local source version was distilled but does not reveal or reproduce omitted raw content.",
     "The source commit remains local and is not intended to be pushed because its history contains the undistilled tree."
+  ],
+  "limitations_zh_tw": [
+    "SHA-256 manifest 可證明蒸餾使用的本機來源版本，但不揭露或重現被省略的 raw content。",
+    "來源 commit 保留於本機且不應推送，因其 history 含有未蒸餾的 tree。"
   ]
 }

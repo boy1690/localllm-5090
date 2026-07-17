@@ -1,5 +1,6 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
+  "content_languages": ["en", "zh-TW"],
   "systems": [
     {
       "id": "rtx5090-laptop-24gb-ref",
@@ -33,10 +34,12 @@
       ],
       "operating_policy": {
         "gpu_owner": "single primary inference owner",
+        "gpu_owner_zh_tw": "單一主要 inference owner",
         "minimum_dedicated_headroom_mib": 2048,
         "maximum_new_process_shared_growth_mib": 512
       },
-      "redaction": "Brand/model details not needed for comparison, account data, host identifiers, exact OS build and absolute paths were intentionally omitted."
+      "redaction": "Brand/model details not needed for comparison, account data, host identifiers, exact OS build and absolute paths were intentionally omitted.",
+      "redaction_zh_tw": "比較不需要的品牌／型號細節、帳號資料、host identifiers、精確 OS build 與絕對路徑均刻意省略。"
     }
   ]
 }

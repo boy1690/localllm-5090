@@ -1,5 +1,6 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
+  "content_languages": ["en", "zh-TW"],
   "topologies": [
     {
       "id": "daily-qwen4-to-ministral14",
@@ -8,7 +9,8 @@
       "mode": "sequential",
       "status": "pass_historical",
       "metrics": { "score": 24, "score_max": 25, "wall_seconds": 30.475, "loaded_vram_gib": 14.1 },
-      "finding": "Best historical daily/RAG route in the five-task suite."
+      "finding": "Best historical daily/RAG route in the five-task suite.",
+      "finding_zh_tw": "五任務 suite 中歷史最佳的 daily／RAG route。"
     },
     {
       "id": "review-qwen4-to-gptoss20",
@@ -17,7 +19,8 @@
       "mode": "sequential",
       "status": "conditional_pass",
       "metrics": { "score": 21, "score_max": 25, "wall_seconds": 15.231, "loaded_vram_gib": 16.2 },
-      "finding": "Fast engineering/review lane; source-conflict tasks require a strict output card."
+      "finding": "Fast engineering/review lane; source-conflict tasks require a strict output card.",
+      "finding_zh_tw": "快速的 engineering／review lane；source-conflict 任務需要嚴格 output card。"
     },
     {
       "id": "sweetspot-gemma26-qwen35-qwen4",
@@ -26,7 +29,8 @@
       "mode": "sequential",
       "status": "best_observed_design_chain",
       "metrics": { "wall_seconds": 61.8, "mechanical_scores": [100, 100], "checker": "pass" },
-      "finding": "Best speed/quality design proposal, still requiring external semantic review."
+      "finding": "Best speed/quality design proposal, still requiring external semantic review.",
+      "finding_zh_tw": "速度／品質最佳的設計提案，但仍需外部 semantic review。"
     },
     {
       "id": "coding-devstral-qwen27-qwen35-qwen4",
@@ -35,7 +39,8 @@
       "mode": "sequential",
       "status": "mechanical_pass_semantic_risk",
       "metrics": { "wall_seconds": 159.7 },
-      "finding": "Extra seats increased cost and did not eliminate process-tree/rollback semantic errors."
+      "finding": "Extra seats increased cost and did not eliminate process-tree/rollback semantic errors.",
+      "finding_zh_tw": "增加席位提高成本，仍未消除 process-tree／rollback semantic errors。"
     },
     {
       "id": "five-large-plus-checker",
@@ -44,7 +49,8 @@
       "mode": "sequential",
       "status": "fail_non_monotonic_quality",
       "metrics": { "wall_seconds": 236.1, "manual_rescore": 69 },
-      "finding": "More large-model seats did not prevent semantic drift."
+      "finding": "More large-model seats did not prevent semantic drift.",
+      "finding_zh_tw": "增加大型模型席位並未阻止 semantic drift。"
     },
     {
       "id": "resident-gptoss20-qwen4-phi",
@@ -53,7 +59,8 @@
       "mode": "resident",
       "status": "capacity_pass",
       "metrics": { "final_free_mib": 4222, "small_seat_shared_mib": [94, 96] },
-      "finding": "Largest admitted resident composition under the 2 GiB policy; small seats remain mechanical checkers."
+      "finding": "Largest admitted resident composition under the 2 GiB policy; small seats remain mechanical checkers.",
+      "finding_zh_tw": "2 GiB policy 下可接受的最大 resident 組合；小型席位仍只作 mechanical checker。"
     },
     {
       "id": "resident-four-model-capacity",
@@ -62,7 +69,8 @@
       "mode": "resident",
       "status": "rejected_below_headroom",
       "metrics": { "final_free_mib": 462 },
-      "finding": "Fourth resident model crossed the capacity boundary."
+      "finding": "Fourth resident model crossed the capacity boundary.",
+      "finding_zh_tw": "第四個 resident 模型越過容量邊界。"
     },
     {
       "id": "resident-deepseek8-qwen4-phi",
@@ -71,7 +79,8 @@
       "mode": "resident",
       "status": "invalid_chain",
       "metrics": { "final_free_mib": 10225, "proposal_score": 69 },
-      "finding": "Capacity was safe, but malformed checker output made the chain invalid."
+      "finding": "Capacity was safe, but malformed checker output made the chain invalid.",
+      "finding_zh_tw": "容量安全，但 malformed checker output 使整條 chain 無效。"
     },
     {
       "id": "sequential-gemma26-deepseek8-qwen4",
@@ -80,7 +89,8 @@
       "mode": "sequential",
       "status": "needs_rework",
       "metrics": { "mechanical_score": 69 },
-      "finding": "DeepSeek8 did not remove the existing high-severity issue and introduced another guard."
+      "finding": "DeepSeek8 did not remove the existing high-severity issue and introduced another guard.",
+      "finding_zh_tw": "DeepSeek8 未移除既有 high-severity issue，並另增一個 guard。"
     },
     {
       "id": "sequential-gemma26-deepseek32-qwen4",
@@ -89,7 +99,8 @@
       "mode": "sequential",
       "status": "invalid_chain",
       "metrics": { "deepseek_stage_seconds": 49.71, "mechanical_score": 69 },
-      "finding": "Slower than 8B without quality gain; final checker JSON was malformed."
+      "finding": "Slower than 8B without quality gain; final checker JSON was malformed.",
+      "finding_zh_tw": "比 8B 更慢且沒有品質提升；final checker JSON 格式錯誤。"
     },
     {
       "id": "fixed-qwen35-to-qwencoder-repair",
@@ -98,7 +109,8 @@
       "mode": "sequential_fixed_repair",
       "status": "fail_candidate_degraded",
       "metrics": { "external_test_result": "compile_fail" },
-      "finding": "Fixed 1+1 repair added contradictions and did not fix the counter capture."
+      "finding": "Fixed 1+1 repair added contradictions and did not fix the counter capture.",
+      "finding_zh_tw": "固定 1+1 repair 增加矛盾，且未修正 counter capture。"
     },
     {
       "id": "adaptive-cross-family-rust-repair",
@@ -107,7 +119,8 @@
       "mode": "adaptive_gate_driven",
       "status": "pass",
       "metrics": { "cargo_tests_passed": 5, "cargo_tests_failed": 0, "cargo_tests_ignored": 0 },
-      "finding": "Improvement came from distinct bounded friction and repeated objective gates, not voting."
+      "finding": "Improvement came from distinct bounded friction and repeated objective gates, not voting.",
+      "finding_zh_tw": "改善來自不同的 bounded friction 與反覆客觀 gates，而不是投票。"
     }
   ]
 }

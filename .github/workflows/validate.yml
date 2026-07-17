@@ -1,4 +1,4 @@
-name: validate
+name: validate / 驗證
 
 on:
   push:
@@ -11,8 +11,11 @@ permissions:
 
 jobs:
   repository-structure:
+    name: Repository structure / Repo 結構
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-      - shell: pwsh
+      - name: Check out repository / 取出 repo
+        uses: actions/checkout@v6
+      - name: Validate data and public safety / 驗證資料與公開安全
+        shell: pwsh
         run: ./tools/validate.ps1

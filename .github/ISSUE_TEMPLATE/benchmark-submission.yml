@@ -1,33 +1,33 @@
-name: Benchmark submission proposal
-description: Propose a public-safe measurement or a new versioned suite.
+name: Benchmark submission proposal / Benchmark 投稿提案
+description: Propose a public-safe measurement or a new versioned suite. / 提出可公開的量測或新的版本化 suite。
 title: "[submission]: "
 labels: ["submission"]
 body:
   - type: markdown
     attributes:
-      value: Do not paste credentials, private paths/account identifiers, raw logs, or model files.
+      value: Do not paste credentials, private paths, account identifiers, raw logs, or model files. / 請勿貼上憑證、私有路徑、帳號識別碼、raw logs 或模型檔。
   - type: input
     id: model
     attributes:
-      label: Model and quantization
+      label: Model and quantization / 模型與量化
     validations:
       required: true
   - type: input
     id: runtime
     attributes:
-      label: Runtime and version
+      label: Runtime and version / Runtime 與版本
     validations:
       required: true
   - type: textarea
     id: method
     attributes:
-      label: Measurement and objective gate
+      label: Measurement and objective gate / 量測與客觀 gate
     validations:
       required: true
   - type: checkboxes
     id: rights
     attributes:
-      label: Confirmation
+      label: Confirmation / 確認
       options:
-        - label: I will submit only public-safe material I have the right to publish.
+        - label: I will submit only bilingual, public-safe material that I have the right to publish. / 我只會提交有權發布、具中英雙語且可安全公開的材料。
           required: true

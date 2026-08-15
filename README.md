@@ -39,6 +39,7 @@ docs/
   data-model.md
   limitations.md
   localization.md
+  local-coding-contract.md
 schemas/
   submission.schema.json
 submissions/
@@ -104,6 +105,7 @@ docs/
   data-model.md
   limitations.md
   localization.md
+  local-coding-contract.md
 schemas/
   submission.schema.json
 submissions/
